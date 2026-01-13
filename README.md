@@ -21,3 +21,7 @@ src/
  ├─ App.vue
  ├─ main.js
  └─ style.css
+
+
+ #### une police d’écriture spéciale pour le logo
+  

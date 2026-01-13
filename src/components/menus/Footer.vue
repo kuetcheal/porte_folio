@@ -6,21 +6,21 @@ const navLinks = [
   { label: 'Contact', to: '/contact' },
 ]
 
-const phone = '+33 6 13 88 05 11'
-const email = 'contact@karim-betkom.com'
-const address = '86 Av. Gallieni, 93800 Épinay-sur-Seine'
+const phone = '+33 7 58 10 31 17'
+const email = 'akuetche55@gmail.com'
+const address = '271 Rue de la Thériaque, 34090 Montpellier'
 </script>
 
 <template>
   <div class="footer">
     <div class="footer-inner">
-      <!-- Ligne haute : logo + réseaux + nav -->
+
       <div class="footer-top">
         <div class="brand-socials">
-          <div class="brand">GK</div>
+          <div class="brand">KAS</div>
 
           <div class="socials">
-            <!-- placeholders pour LinkedIn / GitHub / X -->
+
             <a href="#" class="social-icon" aria-label="LinkedIn">in</a>
             <a href="#" class="social-icon" aria-label="GitHub">GH</a>
             <a href="#" class="social-icon" aria-label="X">X</a>
@@ -28,12 +28,7 @@ const address = '86 Av. Gallieni, 93800 Épinay-sur-Seine'
         </div>
 
         <nav class="footer-nav">
-          <router-link
-            v-for="link in navLinks"
-            :key="link.to"
-            :to="link.to"
-            class="footer-link"
-          >
+          <router-link v-for="link in navLinks" :key="link.to" :to="link.to" class="footer-link">
             {{ link.label }}
           </router-link>
         </nav>
@@ -41,7 +36,7 @@ const address = '86 Av. Gallieni, 93800 Épinay-sur-Seine'
 
       <hr />
 
-      <!-- Ligne basse : coordonnées -->
+
       <div class="footer-bottom">
         <div class="contact-item">
           <span class="contact-icon">📞</span>
@@ -70,12 +65,11 @@ const address = '86 Av. Gallieni, 93800 Épinay-sur-Seine'
 }
 
 .footer-inner {
-  max-width: 1200px;       /* ✅ même container que le reste */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0.75rem 1.5rem 1rem;
 }
 
-/* Top line */
 .footer-top {
   display: flex;
   justify-content: space-between;
@@ -93,7 +87,9 @@ const address = '86 Av. Gallieni, 93800 Épinay-sur-Seine'
   font-size: 1.8rem;
   font-weight: 700;
   letter-spacing: 0.15rem;
+  font-family: 'Great Vibes', cursive;
 }
+
 
 .socials {
   display: flex;
@@ -153,7 +149,7 @@ hr {
 
 .contact-icon {
   font-size: 1.1rem;
-  color: #d99a1f; /* jaune/orangé comme sur ton screen */
+  color: #d99a1f;
 }
 
 .contact-text {

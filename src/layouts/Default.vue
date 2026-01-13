@@ -5,12 +5,10 @@ import AppFooter from '../components/menus/Footer.vue'
 
 <template>
   <div class="common-layout">
-    <el-container direction="vertical" class="app-shell">
-      <!-- HEADER -->
-      <el-header class="app-header">
-        <Navbar />
-      </el-header>
+    <!-- NAVBAR FIXE TOUT EN HAUT -->
+    <Navbar />
 
+    <el-container direction="vertical" class="app-shell">
       <!-- CONTENU PRINCIPAL -->
       <el-main class="app-main">
         <div class="main-inner">
@@ -26,6 +24,7 @@ import AppFooter from '../components/menus/Footer.vue'
   </div>
 </template>
 
+
 <style scoped>
 .common-layout {
   min-height: 100vh;
@@ -33,14 +32,9 @@ import AppFooter from '../components/menus/Footer.vue'
   color: #fff;
 }
 
-.app-header {
-  padding: 0; /* padding géré dans le composant Navbar */
-  background: #1f2429;
-  border-bottom: 1px solid #353b41;
-}
-
 .app-main {
-  padding: 2rem 1.5rem;
+  /* top = 0, left/right = 1.5rem, bottom = 2rem */
+  padding: 0 1.5rem 2rem;
 }
 
 .main-inner {
@@ -49,7 +43,7 @@ import AppFooter from '../components/menus/Footer.vue'
 }
 
 .app-footer {
-  padding: 0; 
+  padding: 0;
   background: #1f2429;
   border-top: 1px solid #353b41;
 }
