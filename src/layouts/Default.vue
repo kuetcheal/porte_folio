@@ -30,6 +30,7 @@ import AppFooter from '../components/menus/Footer.vue'
   min-height: 100vh;
   background: #050816;
   color: #fff;
+   overflow-x: hidden;  
 }
 
 .app-main {

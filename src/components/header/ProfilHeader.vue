@@ -87,12 +87,13 @@ const profile = {
 
 .profile-text {
   flex: 1.05;
+  margin: 0 auto;
 }
 
 .profile-title {
   font-size: 2.4rem;
   font-weight: 800;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .profile-name-block {
