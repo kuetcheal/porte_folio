@@ -1,14 +1,15 @@
 <script setup>
-import DefaultLayout from './layouts/Default.vue'
+import DefaultLayout from "./layouts/Default.vue";
+import Cookies from "./components/cookies.vue";
 </script>
 
 <template>
   <DefaultLayout>
-    <!-- Ici s’affichent tes pages (Accueil, Parcours, etc.) -->
     <router-view />
   </DefaultLayout>
+  <Cookies />
 </template>
 
 <style scoped>
-/* Tu pourras enlever tout ce qui venait du template Vite */
+
 </style>

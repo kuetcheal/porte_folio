@@ -25,3 +25,7 @@ src/
 
  #### une police d’écriture spéciale pour le logo
   
+### utilisation de ElementPlus comme bibliothèque UI car c'est juste un site vitrime donc pour cela besoin d'une bibliothèque UI léger 
+pour gérer cela
+
+###  utilisation de la bibliothèque Motion pour la gestion des animations

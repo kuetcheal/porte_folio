@@ -17,7 +17,7 @@ const services = [
     intro:
       "Transformez votre vision en une boutique en ligne performante qui convertit vos visiteurs en clients fidèles.",
 
-    featuresTitle: 'Fonctionnalités incluses',
+    featuresTitle: '✨ Fonctionnalités incluses',
     features: [
       'Interface utilisateur intuitive et moderne',
       'Gestion complète des produits et stocks',
@@ -27,7 +27,7 @@ const services = [
       "Intégration des solutions de livraison"
     ],
 
-    benefitsTitle: 'Bénéfices pour vous',
+    benefitsTitle: '🎯 Bénéfices pour vous',
     benefits: [
       'Augmentez vos ventes en ligne',
       'Réduisez vos coûts opérationnels',
@@ -36,32 +36,31 @@ const services = [
       'Accédez à de nouveaux marchés'
     ],
 
-    processTitle: 'Mon processus de travail',
+    processTitle: '🚀 Mon processus de travail',
     steps: [
       {
         num: 1,
         title: 'Analyse de vos besoins',
-        desc: 'Compréhension de votre activité, de vos produits et de vos objectifs.'
       },
       {
         num: 2,
         title: 'Conception UX/UI',
-        desc: 'Maquettes et parcours client optimisés pour la conversion.'
+        
       },
       {
         num: 3,
-        title: 'Développement & intégration',
-        desc: 'Mise en place de la boutique, des paiements et des outils métier.'
+        title: 'Développer & intégration',
+       
       },
       {
         num: 4,
         title: 'Tests & optimisations',
-        desc: 'Tests fonctionnels, sécurité et performance, ajustements finaux.'
+       
       },
       {
         num: 5,
         title: 'Lancement & formation',
-        desc: 'Mise en production et accompagnement pour la prise en main.'
+        
       }
     ],
     cta: 'Demander un devis gratuit'
@@ -81,7 +80,7 @@ const services = [
     intro:
       "Gagnez en productivité avec une application web qui répond exactement aux besoins de votre métier.",
 
-    featuresTitle: 'Fonctionnalités incluses',
+    featuresTitle: '✨ Fonctionnalités incluses',
     features: [
       'Architecture scalable et sécurisée',
       'Gestion multi-utilisateurs et permissions',
@@ -91,7 +90,7 @@ const services = [
       'Interface responsive et moderne'
     ],
 
-    benefitsTitle: 'Bénéfices pour vous',
+    benefitsTitle: '🎯 Bénéfices pour vous',
     benefits: [
       'Automatisez vos tâches répétitives',
       'Centralisez vos données métier',
@@ -100,32 +99,27 @@ const services = [
       'Réduisez les erreurs manuelles'
     ],
 
-    processTitle: 'Mon processus de travail',
+    processTitle: '🚀 Mon processus de travail',
     steps: [
       {
         num: 1,
         title: 'Audit de vos processus',
-        desc: 'Analyse de l’existant et des irritants métier.'
       },
       {
         num: 2,
-        title: 'Conception de l’architecture',
-        desc: 'Modélisation des données et choix techniques.'
+        title: 'Conception architectural',
       },
       {
         num: 3,
         title: 'Développement itératif',
-        desc: 'Sprints courts, démos régulières et retours utilisateurs.'
       },
       {
         num: 4,
         title: 'Tests & ajustements',
-        desc: 'Stabilisation, performance, sécurité, conformité.'
       },
       {
         num: 5,
         title: 'Déploiement & évolution',
-        desc: 'Mise en production, support et évolutions continues.'
       }
     ],
     cta: 'Parler de votre projet SaaS'
@@ -133,7 +127,7 @@ const services = [
 
   {
     key: 'automation',
-    name: 'Automatisation & Intégration',
+    name: 'Automatiser et Intégrer',
     icon: 'fa-right-left',
     short: 'Connectez vos outils et automatisez vos workflows.',
     color: '#16a34a',
@@ -144,7 +138,7 @@ const services = [
     intro:
       "Faites communiquer vos systèmes entre eux pour éliminer les tâches manuelles et gagner un temps précieux.",
 
-    featuresTitle: 'Fonctionnalités incluses',
+    featuresTitle: '✨ Fonctionnalités incluses',
     features: [
       'Intégration d’API tierces (CRM, ERP, etc.)',
       'Synchronisation automatique des données',
@@ -154,7 +148,7 @@ const services = [
       'Documentation technique complète'
     ],
 
-    benefitsTitle: 'Bénéfices pour vous',
+    benefitsTitle: '🎯 Bénéfices pour vous',
     benefits: [
       'Éliminez les saisies manuelles',
       'Réduisez les erreurs humaines',
@@ -163,32 +157,27 @@ const services = [
       'Gagnez en visibilité sur votre activité'
     ],
 
-    processTitle: 'Mon processus de travail',
+    processTitle: '🚀 Mon processus de travail',
     steps: [
       {
         num: 1,
         title: 'Cartographie de votre écosystème',
-        desc: 'Inventaire des outils utilisés et de leurs contraintes.'
       },
       {
         num: 2,
         title: 'Identification des opportunités',
-        desc: 'Repérage des tâches automatisables à fort impact.'
       },
       {
         num: 3,
         title: 'Développement des connecteurs',
-        desc: 'Implémentation des scénarios d’intégration.'
       },
       {
         num: 4,
         title: 'Tests & monitoring',
-        desc: 'Validation et surveillance des flux automatisés.'
       },
       {
         num: 5,
         title: 'Documentation & transfert',
-        desc: 'Documentation claire et accompagnement de vos équipes.'
       }
     ],
     cta: 'Mettre en place des automatisations'
@@ -207,7 +196,7 @@ const services = [
     intro:
       "Améliorez la vitesse, le référencement et l’expérience utilisateur de votre site pour maximiser vos résultats.",
 
-    featuresTitle: 'Fonctionnalités incluses',
+    featuresTitle: '✨ Fonctionnalités incluses',
     features: [
       'Audit technique et SEO complet',
       'Optimisation des temps de chargement',
@@ -217,7 +206,7 @@ const services = [
       'Suivi et reporting des performances'
     ],
 
-    benefitsTitle: 'Bénéfices pour vous',
+    benefitsTitle: '🎯 Bénéfices pour vous',
     benefits: [
       'Améliorez votre positionnement Google',
       'Augmentez votre trafic organique',
@@ -226,32 +215,27 @@ const services = [
       'Améliorez la satisfaction des utilisateurs'
     ],
 
-    processTitle: 'Mon processus de travail',
+    processTitle: '✨ Mon processus de travail',
     steps: [
       {
         num: 1,
         title: 'Audit complet de votre site',
-        desc: 'Analyse technique, SEO et UX.'
       },
       {
         num: 2,
         title: 'Rapport de recommandations',
-        desc: 'Liste des actions classées par priorité et impact.'
       },
       {
         num: 3,
         title: 'Implémentation des optimisations',
-        desc: 'Corrections techniques et améliorations de contenu.'
       },
       {
         num: 4,
         title: 'Tests de performance',
-        desc: 'Mesure des gains (PageSpeed, Core Web Vitals, etc.).'
       },
       {
         num: 5,
         title: 'Suivi mensuel',
-        desc: 'Monitoring des résultats et ajustements réguliers.'
       }
     ],
     cta: 'Booster la visibilité de mon site'
@@ -366,29 +350,43 @@ const selectService = (key) => {
           </div>
 
           <!-- ====== PROCESSUS ====== -->
-          <section class="service-process">
-            <h3>{{ currentService.processTitle }}</h3>
-            <div class="process-cards">
-              <article
-                v-for="step in currentService.steps"
-                :key="step.num"
-                class="process-card"
-              >
-                <div class="process-step-number">
-                  {{ step.num }}
-                </div>
-                <h4 class="process-step-title">{{ step.title }}</h4>
-                <p class="process-step-desc">
-                  {{ step.desc }}
-                </p>
-              </article>
-            </div>
-          </section>
+         <section class="service-process">
+  <h3 class="process-title">{{ currentService.processTitle }}</h3>
+
+  <div class="process-timeline">
+    <article
+      v-for="(step, idx) in currentService.steps"
+      :key="step.num"
+      class="process-item"
+    >
+      <!-- numéro + connecteur -->
+      <div class="process-top">
+        <div class="process-badge">
+          {{ step.num }}
+        </div>
+
+        <!-- connecteur vers la carte suivante -->
+        <div
+          v-if="idx !== currentService.steps.length - 1"
+          class="process-connector"
+          aria-hidden="true"
+        ></div>
+      </div>
+
+      <!-- carte -->
+      <div class="process-card">
+        <h4 class="process-step-title">{{ step.title }}</h4>
+        <p class="process-step-desc">{{ step.desc }}</p>
+      </div>
+    </article>
+  </div>
+</section>
+
 
           <!-- ====== CTA FINAL ====== -->
           <footer class="service-cta">
             <h3>Prêt à démarrer votre projet&nbsp;?</h3>
-            <p>
+            <p class="service-summary">
               Discutons de vos besoins et je vous proposerai une solution
               adaptée à votre budget et vos objectifs.
             </p>
@@ -405,19 +403,23 @@ const selectService = (key) => {
 </template>
 
 <style scoped>
+/* ================== GLOBAL ================== */
+
+/* ================== GLOBAL ================== */
+
 .services-page {
   background: #050816;
   color: #f9fafb;
 }
 
-/* ========= HERO ========= */
+/* ================== HERO ================== */
 
 .services-hero {
   position: relative;
   width: 100vw;
-  margin-left: calc(50% - 50vw); /* full-bleed */
-  height: 260px;
-  background-position: center center;
+  margin-left: calc(50% - 50vw);
+  height: 400px;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -428,11 +430,7 @@ const selectService = (key) => {
 .services-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.78),
-    rgba(0, 0, 0, 0.9)
-  );
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.9));
 }
 
 .services-hero-inner {
@@ -444,302 +442,368 @@ const selectService = (key) => {
 
 .services-hero-title {
   font-size: 2.4rem;
-  font-weight: 800;
+  font-weight: 900;
   margin-bottom: 0.7rem;
 }
 
 .services-hero-subtitle {
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1.7;
   color: #e5e7eb;
 }
 
-/* ========= CONTENU ========= */
+/* ================== CONTAINER ================== */
 
 .services-section {
-  padding: 3rem 0 4rem;
+  padding: 3.5rem 0 4.5rem;
 }
 
 .services-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem 0;
+  padding: 0 1.5rem;
 }
 
-/* ====== TABS ====== */
+/* ================== TABS ================== */
 
 .services-tabs {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
-  margin-bottom: 2.5rem;
+  gap: 1.1rem;
+  margin-bottom: 3rem;
 }
 
 .service-tab {
   background: transparent;
   border: none;
   padding: 0;
-  text-align: left;
   cursor: pointer;
+  text-align: left;
 }
 
 .service-tab-inner {
-  border-radius: 0.5rem;
-  padding: 1.2rem 1.2rem 1rem;
+  border-radius: 0.75rem;
+  padding: 1.4rem 1.3rem 1.2rem;
   color: #f9fafb;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
-  transition: transform 0.15s ease, box-shadow 0.15s ease,
-    opacity 0.15s ease;
+  gap: 0.6rem;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
   opacity: 0.85;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
 }
 
 .service-tab.active .service-tab-inner,
 .service-tab-inner:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  transform: translateY(-5px);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.55);
   opacity: 1;
 }
 
 .tab-icon-wrapper {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.4);
+  background: rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.4rem;
 }
 
 .tab-icon-wrapper i {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .tab-title {
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: 1.05rem;
+  font-weight: 800;
 }
 
 .tab-short {
-  font-size: 0.78rem;
-  line-height: 1.4;
+  font-size: 0.85rem;
+  line-height: 1.5;
   color: #e5e7eb;
 }
 
-/* ====== BLOC DÉTAIL ====== */
+/* ================== DETAILS ================== */
 
 .service-details {
-  background: #111827;
-  border-radius: 0.75rem;
-  border: 1px solid #1f2933;
-  padding: 1.6rem 1.8rem 2rem;
-  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45);
+  border-radius: 1.1rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
 }
+
+/* ===== HEADER COLORÉ ===== */
 
 .service-header {
-  border-bottom: 1px solid #1f2933;
-  padding-bottom: 1.2rem;
-  margin-bottom: 1.5rem;
+  --accent: #06b6d4;
+  position: relative;
+  justify-content: start;
+  padding: 2.6rem 2.4rem 2rem;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent) 70%, #000 30%),
+    color-mix(in srgb, var(--accent) 45%, #000 55%)
+  );
 }
 
-.service-header-top {
-  margin-bottom: 1rem;
+.service-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.45));
+}
+
+.service-header::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(700px 260px at 20% 20%, rgba(255, 255, 255, 0.18), transparent 60%);
+  opacity: 0.6;
+}
+
+.service-header-top,
+.service-badges {
+  position: relative;
+  z-index: 1;
+  text-align: start;
+  justify-content: start !important;
 }
 
 .service-title {
-  font-size: 1.3rem;
-  font-weight: 800;
-  margin-bottom: 0.35rem;
+  font-size: 2.4rem;
+  font-weight: 900;
+  margin-bottom: 0.8rem;
+    text-align: start;
+    justify-content: start;
 }
 
 .service-intro {
-  font-size: 0.88rem;
-  color: #e5e7eb;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 920px;
+  line-height: 1.7;
+  text-align: start;
+  justify-content: start !important;
 }
 
 .service-badges {
+  margin-top: 1.4rem;
   display: flex;
+  justify-content: center;
+  gap: 0.9rem;
   flex-wrap: wrap;
-  gap: 0.6rem;
 }
 
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.55rem;
   border-radius: 999px;
-  font-size: 0.75rem;
-  padding: 0.35rem 0.9rem;
-  white-space: nowrap;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.9rem;
+  backdrop-filter: blur(6px);
 }
 
 .badge-outline {
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  background: rgba(15, 23, 42, 0.7);
+   background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: white;
 }
 
 .badge-filled {
-  border: 1px solid var(--accent);
-  background: var(--accent);
-  color: #0f172a;
-  font-weight: 600;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: white;
+  font-weight: 800;
 }
 
-.badge-icon {
-  font-size: 0.75rem;
-}
-
-/* Colonnes texte */
+/* ===== BODY SOMBRE ===== */
 
 .service-columns {
+  background: #0b1222;
+  padding: 2.4rem 2.4rem 2rem;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-  gap: 2.5rem;
-  margin-bottom: 2.2rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
 }
 
 .service-col h3 {
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin-bottom: 0.6rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
 }
 
 .service-col ul {
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 .service-col li {
-  font-size: 0.86rem;
-  line-height: 1.6;
-  color: #e5e7eb;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  padding-left: 1.2rem;
   position: relative;
-  padding-left: 1.1rem;
 }
 
 .service-col li + li {
-  margin-top: 0.25rem;
+  margin-top: 0.35rem;
 }
 
 .service-col li::before {
-  content: '•';
+  content: "•";
   position: absolute;
   left: 0;
   top: 0;
-  color: var(--accent, #f97316);
+  color: #ffb020;
 }
 
-/* Processus */
+/* ================== PROCESS (TIMELINE STYLE) ================== */
 
-.service-process h3 {
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin-bottom: 0.8rem;
+.service-process {
+  background: #0b1222;
+  padding: 0.2rem 2.4rem 2.6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.process-cards {
+.process-title {
+  font-size: 1.25rem;
+  font-weight: 900;
+  margin: 1.2rem 0 1.2rem;
+}
+
+/* timeline horizontale */
+.process-timeline {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin-bottom: 1.7rem;
+  gap: 1rem;
 }
 
-.process-card {
-  background: #0b1120;
-  border-radius: 0.5rem;
-  border: 1px solid #1f2933;
-  padding: 0.75rem 0.8rem 0.8rem;
+/* item = badge+connector + card */
+.process-item {
+  position: relative;
+}
+
+/* top row avec le badge et le connector */
+.process-top {
   display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.65rem;
 }
 
-.process-step-number {
-  width: 1.6rem;
-  height: 1.6rem;
+/* rond numéro */
+.process-badge {
+  width: 34px;
+  height: 34px;
   border-radius: 999px;
-  background: #1f2937;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
-  font-weight: 700;
+
+  font-weight: 900;
+  font-size: 0.95rem;
   color: #f9fafb;
+
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* petit trait de liaison (comme ta référence) */
+.process-connector {
+  height: 2px;
+  flex: 1;
+  border-radius: 999px;
+
+  /* une ligne discrète */
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0.06)
+  );
+}
+
+/* carte process sombre */
+.process-card {
+  background: #3A3F45;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  padding: 1.05rem 1rem 1.15rem;
+  max-height: 120px;
+
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.process-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(2, 6, 23, 0.72);
 }
 
 .process-step-title {
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 900;
+  margin-bottom: 0.35rem;
 }
 
 .process-step-desc {
-  font-size: 0.78rem;
-  line-height: 1.45;
-  color: #d1d5db;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.75);
 }
 
-/* CTA */
+/* ================== CTA ================== */
 
 .service-cta {
-  margin-top: 0.3rem;
-  border-radius: 0.75rem;
-  background: #020617;
-  border: 1px solid #1f2933;
-  padding: 1.4rem 1.6rem;
+  background: #3A3F45;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2.2rem;
   text-align: center;
 }
 
 .service-cta h3 {
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: 0.4rem;
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
 }
 
 .service-cta p {
-  font-size: 0.86rem;
-  color: #e5e7eb;
-  margin-bottom: 0.9rem;
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.2rem;
 }
 
 .cta-button {
   border: none;
   border-radius: 999px;
-  padding: 0.75rem 2.4rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  background: var(--accent, #f97316);
+  padding: 1rem 3rem;
+  font-size: 1.05rem;
+  font-weight: 900;
+  background: var(--accent, #06b6d4);
   color: #020617;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
 }
 
-.cta-button i {
-  font-size: 0.9rem;
-}
-
-/* ========= RESPONSIVE ========= */
+/* ================== RESPONSIVE ================== */
 
 @media (max-width: 1024px) {
   .services-tabs {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .process-cards {
+  .process-timeline {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 900px) {
   .services-hero {
-    height: 220px;
+    height: 350px;
   }
 
   .services-hero-title {
@@ -752,16 +816,34 @@ const selectService = (key) => {
 
   .service-columns {
     grid-template-columns: 1fr;
+    padding: 2rem 1.5rem;
   }
 
-  .process-cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .service-header {
+    padding: 2rem 1.5rem 1.6rem;
+  }
+
+  .service-title {
+    font-size: 1.9rem;
+  }
+
+  .service-process {
+    padding: 0.2rem 1.5rem 2rem;
   }
 }
 
 @media (max-width: 600px) {
-  .process-cards {
+  .process-timeline {
     grid-template-columns: 1fr;
   }
+
+  .process-top {
+    margin-bottom: 0.5rem;
+  }
+
+  .process-connector {
+    display: none; /* sur mobile, on enlève le trait */
+  }
 }
+
 </style>

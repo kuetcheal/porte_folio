@@ -1,39 +1,43 @@
 <!-- src/pages/Contact.vue -->
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref } from "vue";
+import { Motion } from "motion-v";
+const bgHero = new URL("@/assets/infos3.jpg", import.meta.url).href;
 
-const bgHero = new URL('@/assets/infos3.jpg', import.meta.url).href
-
-const formRef = ref(null)
+const formRef = ref(null);
 
 const form = reactive({
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  message: ''
-})
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  message: "",
+});
 
 const rules = {
-  firstName: [{ required: true, message: 'Prénom obligatoire', trigger: 'blur' }],
-  email: [
-    { required: true, message: 'Email obligatoire', trigger: 'blur' },
-    { type: 'email', message: 'Email invalide', trigger: ['blur', 'change'] }
+  firstName: [
+    { required: true, message: "Prénom obligatoire", trigger: "blur" },
   ],
-  message: [{ required: true, message: 'Message obligatoire', trigger: 'blur' }]
-}
+  email: [
+    { required: true, message: "Email obligatoire", trigger: "blur" },
+    { type: "email", message: "Email invalide", trigger: ["blur", "change"] },
+  ],
+  message: [
+    { required: true, message: "Message obligatoire", trigger: "blur" },
+  ],
+};
 
 const submitForm = () => {
-  if (!formRef.value) return
+  if (!formRef.value) return;
   formRef.value.validate((valid) => {
     if (valid) {
       // Ici tu pourras plus tard appeler ton API / envoyer un mail
-      console.log('Formulaire envoyé :', { ...form })
-      ElMessage.success('Votre message a bien été envoyé (simulation).')
-      Object.keys(form).forEach((k) => (form[k] = ''))
+      console.log("Formulaire envoyé :", { ...form });
+      ElMessage.success("Votre message a bien été envoyé (simulation).");
+      Object.keys(form).forEach((k) => (form[k] = ""));
     }
-  })
-}
+  });
+};
 </script>
 
 <template>
@@ -51,6 +55,7 @@ const submitForm = () => {
           Vous avez un projet ? Discutons-en ensemble pour voir comment je peux
           vous aider.
         </p>
+
       </div>
     </section>
 
@@ -59,9 +64,7 @@ const submitForm = () => {
       <div class="contact-container">
         <!-- COLONNE FORMULAIRE -->
         <div class="contact-left">
-          <h2 class="contact-block-title">
-            Vous souhaitez être recontacté ?
-          </h2>
+          <h2 class="contact-block-title">Vous souhaitez être recontacté ?</h2>
 
           <el-form
             ref="formRef"
@@ -72,10 +75,7 @@ const submitForm = () => {
           >
             <div class="form-row">
               <el-form-item label="Prénom *" prop="firstName">
-                <el-input
-                  v-model="form.firstName"
-                  placeholder="Votre prénom"
-                />
+                <el-input v-model="form.firstName" placeholder="Votre prénom" />
               </el-form-item>
 
               <el-form-item label="Nom" prop="lastName">
@@ -109,12 +109,7 @@ const submitForm = () => {
             </el-form-item>
 
             <div class="contact-submit">
-              <el-button
-                type="danger"
-                size="large"
-                round
-                @click="submitForm"
-              >
+              <el-button type="danger" size="large" round @click="submitForm">
                 <i class="fa-solid fa-paper-plane submit-icon" />
                 Envoyer
               </el-button>
@@ -124,9 +119,7 @@ const submitForm = () => {
 
         <!-- COLONNE INFOS DE CONTACT -->
         <div class="contact-right">
-          <h2 class="contact-block-title">
-            Contactez-moi
-          </h2>
+          <h2 class="contact-block-title">Contactez-moi</h2>
 
           <ul class="contact-info-list">
             <li>
@@ -172,12 +165,8 @@ const submitForm = () => {
 
           <div class="contact-hours">
             <h3>Horaires</h3>
-            <p>
-              <strong>Lundi - Vendredi :</strong> 08h30 - 18h30
-            </p>
-            <p>
-              <strong>Week-ends et jours fériés :</strong> Indisponible
-            </p>
+            <p><strong>Lundi - Vendredi :</strong> 08h30 - 18h30</p>
+            <p><strong>Week-ends et jours fériés :</strong> Indisponible</p>
           </div>
         </div>
       </div>
@@ -197,8 +186,10 @@ const submitForm = () => {
 .contact-hero {
   position: relative;
   width: 100vw;
-  margin-left: calc(50% - 50vw);   /* sort du container pour toucher les bords écran */
-  height: 260px;
+  margin-left: calc(
+    50% - 50vw
+  ); /* sort du container pour toucher les bords écran */
+  height: 400px;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -206,7 +197,6 @@ const submitForm = () => {
   align-items: center;
   justify-content: center;
 }
-
 
 .contact-hero-overlay {
   position: absolute;
@@ -218,7 +208,6 @@ const submitForm = () => {
   );
 }
 
-
 .contact-hero-inner {
   position: relative;
   text-align: center;
@@ -227,13 +216,13 @@ const submitForm = () => {
 }
 
 .contact-hero-title {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   font-weight: 800;
   margin-bottom: 0.7rem;
 }
 
 .contact-hero-subtitle {
-  font-size: 1rem;
+  font-size: 1.5rem;
   line-height: 1.7;
   color: #e5e7eb;
 }
