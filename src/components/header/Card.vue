@@ -1,9 +1,14 @@
 <script setup>
-import { computed } from "vue";
+import { useRouter } from "vue-router";
 import { Motion } from "motion-v";
 
+const router = useRouter();
+
 const props = defineProps({
-  title: { type: String, default: "Développeur Full-Stack • Expertise et Passion" },
+  title: {
+    type: String,
+    default: "Développeur Full-Stack • Expertise et Passion",
+  },
   subtitle: {
     type: String,
     default:
@@ -18,23 +23,29 @@ const props = defineProps({
     type: String,
     default: "5 années d'expérience • Technologies modernes • Solutions sur mesure",
   },
+
+  primaryTo: { type: String, default: "" },
+  secondaryTo: { type: String, default: "" },
+
+  /* textes */
   primaryText: { type: String, default: "Voir mes projets" },
-  secondaryText: { type: String, default: "Réserver un créneau" },
-  primaryHref: { type: String, default: "" },
-  secondaryHref: { type: String, default: "" },
+  secondaryText: { type: String, default: "Découvrir mon profil" },
 });
 
-const emit = defineEmits(["primary", "secondary"]);
+const goTo = (to) => {
+  if (!to) return;
 
-const primaryIsLink = computed(() => !!props.primaryHref);
-const secondaryIsLink = computed(() => !!props.secondaryHref);
+  // lien externe (optionnel)
+  if (/^https?:\/\//.test(to)) {
+    window.open(to, "_blank", "noopener,noreferrer");
+    return;
+  }
 
-const onPrimary = () => {
-  if (!primaryIsLink.value) emit("primary");
+  router.push(to);
 };
-const onSecondary = () => {
-  if (!secondaryIsLink.value) emit("secondary");
-};
+
+const onPrimary = () => goTo(props.primaryTo);
+const onSecondary = () => goTo(props.secondaryTo);
 </script>
 
 <template>
@@ -47,7 +58,7 @@ const onSecondary = () => {
     :viewport="{ once: true, amount: 0.35 }"
   >
     <el-card class="hero-card" shadow="never" :body-style="{ padding: '0' }">
-      <!-- Le fond décor / image est derrière (transparent) -->
+      <!-- Overlay (ton fond sombre) -->
       <div class="hero-overlay" aria-hidden="true"></div>
 
       <div class="hero-content">
@@ -59,9 +70,7 @@ const onSecondary = () => {
           :viewport="{ once: true, amount: 0.5 }"
         >
           <h1 class="hero-title">{{ title }}</h1>
-
           <p class="hero-subtitle">{{ subtitle }}</p>
-
           <p class="hero-desc">{{ description }}</p>
         </Motion>
 
@@ -73,23 +82,25 @@ const onSecondary = () => {
           :transition="{ duration: 1.05, delay: 0.3, ease: 'easeOut' }"
           :viewport="{ once: true, amount: 0.5 }"
         >
-          <component
-            :is="primaryIsLink ? 'a' : 'button'"
+          <button
             class="btn btn-primary"
-            :href="primaryHref || undefined"
+            type="button"
             @click="onPrimary"
+            :disabled="!primaryTo"
+            :aria-disabled="!primaryTo"
           >
             {{ primaryText }}
-          </component>
+          </button>
 
-          <component
-            :is="secondaryIsLink ? 'a' : 'button'"
+          <button
             class="btn btn-secondary"
-            :href="secondaryHref || undefined"
+            type="button"
             @click="onSecondary"
+            :disabled="!secondaryTo"
+            :aria-disabled="!secondaryTo"
           >
             {{ secondaryText }}
-          </component>
+          </button>
         </Motion>
 
         <div class="hero-footer">{{ footer }}</div>
@@ -97,6 +108,7 @@ const onSecondary = () => {
     </el-card>
   </Motion>
 </template>
+
 
 <style scoped>
 /* ===== Wrapper ===== */
@@ -110,7 +122,7 @@ const onSecondary = () => {
 /* ===== Card ===== */
 .hero-card {
   width: min(1200px, 92vw);
-  min-height: 440px; /* ✅ plus haute */
+  min-height: 440px; 
   border-radius: 24px;
   overflow: hidden;
   position: relative;
@@ -121,13 +133,13 @@ const onSecondary = () => {
   backdrop-filter: blur(6px);
 }
 
-/* ⚠️ neutraliser Element Plus */
+
 :deep(.el-card__body) {
   background: transparent !important;
   padding: 0 !important;
 }
 
-/* ===== Overlay EXACT (comme la référence) ===== */
+
 .hero-overlay {
   position: absolute;
   inset: 0;

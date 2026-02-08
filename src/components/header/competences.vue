@@ -66,12 +66,11 @@ const services = [
 
 <style scoped>
 /* section */
-/* .services{
-  padding: 80px 0;
-  background: radial-gradient(1200px 600px at 50% 0%, rgba(255,255,255,.06), transparent 60%),
-              #070b12;
-  color: #fff;
-} */
+.services{
+  padding: 50px 0;
+  /* border: 1px solid red; */
+  padding-top: 50px;
+}
 
 .container{
   max-width: 1200px;

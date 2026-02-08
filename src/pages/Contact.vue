@@ -1,7 +1,7 @@
 <!-- src/pages/Contact.vue -->
 <script setup>
 import { reactive, ref } from "vue";
-import { Motion } from "motion-v";
+// import { Motion } from "motion-v";
 const bgHero = new URL("@/assets/infos3.jpg", import.meta.url).href;
 
 const formRef = ref(null);

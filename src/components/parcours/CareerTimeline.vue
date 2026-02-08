@@ -3,41 +3,44 @@ import { ref } from 'vue'
 
 const timelineItems = ref([
   {
-    year: '2025',
-    title: 'Développeur Full-Stack Freelance',
-    company: 'KAS Dev Studio',
+    year: '2024 - 2026',
+    title: 'Développeur Full-Stack en alternance',
+    company: 'Ecole des ingénieurs EPSI',
     location: 'Montpellier, France',
-    type: 'Freelance',
+    type: 'Alternance',
     technologies: ['Vue.js', 'Nuxt', 'Node.js', 'MongoDB'],
     description:
-      "Accompagnement de PME dans la création de plateformes web sur mesure : sites vitrines, dashboards métier et API sécurisées."
+      "Cetification RNCP Niveau 7 Expert Informatique et Système d'information : Option Développement Web"
   },
+ 
   {
-    year: '2024',
-    title: 'Alternant Développeur Web',
-    company: 'TechNova Solutions',
-    location: 'Lyon, France',
-    type: 'Alternance',
+    year: '2023 - 2024',
+    title: 'Stage Développeur Full-stack : 6 mois',
+    company: 'Codi-one Agency',
+    location: 'Angers, France',
+    type: 'Stage',
+    technologies: ['ReactJS', 'PHP Poo', 'Tailwind', 'html', 'javascript', 'symfony 6'],
+    description:
+      "Intégration de maquettes Figma responsives, création de composants réutilisables et animations micro-interactions."
+  },
+
+   {
+    year: '2022-2023',
+    title: 'Bachelor Développement Web et Mobile',
+    company: 'Ecole des ingénieurs ESAIP',
+    location: 'Angers, France',
+    type: 'En initiale',
     technologies: ['React', 'TypeScript', 'REST API'],
     description:
       "Refonte d'une application interne de gestion de projets : optimisation des performances et amélioration de l’UX."
   },
+
   {
-    year: '2023',
-    title: 'Stage Développeur Front-End',
-    company: 'DigitalWave Agency',
-    location: 'Paris, France',
-    type: 'Stage',
-    technologies: ['Vue 3', 'Element Plus', 'SCSS'],
-    description:
-      "Intégration de maquettes Figma responsives, création de composants réutilisables et animations micro-interactions."
-  },
-  {
-    year: '2022',
-    title: 'Formation Développeur Web',
-    company: 'École du Web',
-    location: 'France',
-    type: 'Formation',
+    year: '2016 - 2019',
+    title: 'Formation Licence en développement Logiciel',
+    company: 'Université de Douala',
+    location: 'Douala, Cameroun',
+    type: 'En initiale',
     technologies: ['HTML', 'CSS', 'JavaScript'],
     description:
       "Apprentissage des bases du développement web, travail sur plusieurs projets pédagogiques en équipe."
@@ -50,9 +53,9 @@ const timelineItems = ref([
     <div class="timeline-container">
       <header class="timeline-header">
         <p class="eyebrow">Parcours</p>
-        <h2>Mon évolution dans le développement web</h2>
+        <h2>Parcours universitaire et professionnel</h2>
         <p class="subtitle">
-          Un chemin construit entre formations, stages, alternance et missions freelance,
+          Un chemin construit entre formations, stages, alternance et projets en freelance,
           avec un focus constant sur la qualité et la performance.
         </p>
       </header>
@@ -114,7 +117,7 @@ const timelineItems = ref([
 <style scoped>
 .timeline-section {
   padding: 4rem 1.5rem;
-  background: radial-gradient(circle at top left, #1b1029 0, #050814 48%, #02030a 100%);
+  
   display: flex;
   justify-content: center;
 }
@@ -166,8 +169,8 @@ const timelineItems = ref([
 /* cards */
 
 .timeline-card {
-  background: #050814;
-  border-radius: 18px;
+  background: #222731;
+  border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.8);
   padding: 1.4rem 1.5rem;
