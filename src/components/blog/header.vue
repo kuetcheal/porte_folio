@@ -67,17 +67,20 @@ const bgHero = new URL("@/assets/infos1.jpg", import.meta.url).href;
 
 @media (max-width: 900px) {
   .contact-hero {
-    height: 220px;
+    height: 350px;
   }
 
   .contact-hero-title {
-    font-size: 2rem;
+    font-size: 1.5rem !important;
   }
 }
 
 @media (max-width: 600px) {
   .contact-hero-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem !important;
+  }
+  .contact-hero-subtitle{
+     font-size: 1.2rem !important;
   }
 }
 </style>

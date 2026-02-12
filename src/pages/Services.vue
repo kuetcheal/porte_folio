@@ -807,7 +807,10 @@ const selectService = (key) => {
   }
 
   .services-hero-title {
-    font-size: 2rem;
+    font-size: 1.6rem;
+  }
+    .services-hero-subtitle {
+    font-size: 1.2rem;
   }
 
   .services-tabs {

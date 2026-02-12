@@ -177,15 +177,16 @@ const projects = [
 
 @media (max-width: 900px) {
   .projects-hero {
-    height: 240px;
+    height: 400px;
   }
 
   .projects-hero-title {
-    font-size: 2.2rem;
+    font-size: 1.6rem !important;
+  
   }
 
   .projects-hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.2rem !important;
   }
 }
 
@@ -341,5 +342,7 @@ const projects = [
   .project-actions {
     justify-content: flex-start;
   }
+
+ 
 }
 </style>

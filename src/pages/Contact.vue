@@ -344,7 +344,7 @@ const submitForm = () => {
   }
 
   .contact-hero {
-    height: 220px;
+    height: 300px;
   }
 
   .contact-hero-title {
@@ -358,7 +358,10 @@ const submitForm = () => {
   }
 
   .contact-hero-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+  }
+  .contact-hero-subtitle{
+    font-size: 1.2rem;
   }
 }
 </style>
