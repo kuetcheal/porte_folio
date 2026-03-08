@@ -29,3 +29,11 @@ src/
 pour gérer cela
 
 ###  utilisation de la bibliothèque Motion pour la gestion des animations
+
+
+
+### structure des dossiers liés à l'appel d'API
+api/axios.js = configuration générale Axios
+api/endpoints.js = toutes les fonctions d’appels API
+stores/ = gestion de l’état global avec Pinia
+utils/cache.js = logique de cache réutilisable

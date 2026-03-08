@@ -1,6 +1,5 @@
 <template>
   <main class="projects-page">
-    <!-- ========= HERO ========= -->
     <section
       class="projects-hero"
       :style="{ backgroundImage: `url(${bgHero})` }"
@@ -13,8 +12,8 @@
         </h1>
 
         <p class="projects-hero-subtitle">
-          Découvrez mes projets de création d'applications web performantes
-          et sur mesure, couvrant Front-End, Back-End et Déploiement.
+          Découvrez mes projets de création d'applications web et mobiles performantes
+          et sur mesure, couvrant Front-End, Back-End, Déploiement et Automatisation.
         </p>
       </div>
     </section>
@@ -123,8 +122,6 @@ const projects = [
   color: #f9fafb;
 }
 
-/* ========= HERO ========= */
-
 .projects-hero {
   position: relative;
   width: 100vw;
@@ -167,13 +164,11 @@ const projects = [
   color: #e5e7eb;
 }
 
-/* ========= SECTION PROJECTS ========= */
 
 .projects-section {
   padding: 3rem 0 4rem;
 }
 
-/* ========= RESPONSIVE ========= */
 
 @media (max-width: 900px) {
   .projects-hero {
@@ -237,13 +232,10 @@ const projects = [
   align-items: stretch; /* -> tous les enfants ont la même hauteur */
 }
 
-/* ===== IMAGE ===== */
 
-/* La colonne image prend 260px de large,
-   et sa hauteur suit celle du contenu grâce à align-items:stretch */
 .project-media {
   flex: 0 0 260px;
-  display: flex;        /* pour que l'img prenne 100% en hauteur */
+  display: flex;       
 }
 
 .project-media img {
