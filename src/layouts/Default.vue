@@ -5,36 +5,35 @@ import AppFooter from '../components/menus/Footer.vue'
 
 <template>
   <div class="common-layout">
-    <!-- NAVBAR FIXE TOUT EN HAUT -->
     <Navbar />
 
-    <el-container direction="vertical" class="app-shell">
-      <!-- CONTENU PRINCIPAL -->
-      <el-main class="app-main">
+    <div class="app-shell">
+      <main class="app-main">
         <div class="main-inner">
           <slot />
         </div>
-      </el-main>
+      </main>
 
-      <!-- FOOTER -->
-      <el-footer class="app-footer">
+      <footer class="app-footer">
         <AppFooter />
-      </el-footer>
-    </el-container>
+      </footer>
+    </div>
   </div>
 </template>
-
 
 <style scoped>
 .common-layout {
   min-height: 100vh;
   background: #050816;
   color: #fff;
-   overflow-x: hidden;  
+  overflow-x: hidden;
+}
+
+.app-shell {
+  min-height: 100vh;
 }
 
 .app-main {
-  /* top = 0, left/right = 1.5rem, bottom = 2rem */
   padding: 0 1.5rem 2rem;
 }
 

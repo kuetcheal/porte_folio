@@ -37,7 +37,6 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <!-- transparent au début, bg après 50px -->
   <header class="navbar" :class="{ scrolled }">
     <div class="navbar-inner">
       <div class="logo">
@@ -91,33 +90,30 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
-/* ===== NAVBAR ===== */
 
-/* Transparent au début */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  width: 100%;
   z-index: 50;
   background: transparent;
   box-shadow: none;
   transition: background 0.3s ease;
 }
 
-/* Quand on scroll > 50px */
 .navbar.scrolled {
   background: #050814;
 }
 
 .navbar-inner {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 1.2rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-sizing: border-box;
 }
 
 /* Logo KAS en écriture spéciale */

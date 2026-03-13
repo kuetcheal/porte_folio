@@ -117,7 +117,7 @@ const timelineItems = ref([
 <style scoped>
 .timeline-section {
   padding: 4rem 1.5rem;
-  
+  border: 1px solid red;
   display: flex;
   justify-content: center;
 }

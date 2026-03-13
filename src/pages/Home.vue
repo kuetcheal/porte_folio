@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- Hero : souvent on l’anime moins, ou juste un fade -->
     <Motion
       tag="section"
       :initial="{ opacity: 0 }"
@@ -41,26 +40,17 @@
       <Competences />
     </Motion>
 
-    <!-- ✅ SECTION CARD FULL WIDTH avec image + fondu haut/bas -->
     <section class="card-bg-section">
-      <!-- 🖼️ Background -->
       <div class="card-bg" aria-hidden="true"></div>
-
-      <!-- 🌫️ Fondu haut -->
       <div class="card-bg-fade-top" aria-hidden="true"></div>
-
-      <!-- 🌫️ Fondu bas -->
       <div class="card-bg-fade-bottom" aria-hidden="true"></div>
-
-      <!-- Contenu au-dessus -->
       <div class="card-bg-content">
-       <Card
-  primaryText="Voir mes projets"
-  secondaryText="Découvrir mon parcours"
-  primaryTo="/projets"
-  secondaryTo="/parcours"
-/>
-
+        <Card
+          primaryText="Voir mes projets"
+          secondaryText="Découvrir mon parcours"
+          primaryTo="/projets"
+          secondaryTo="/parcours"
+        />
       </div>
     </section>
   </div>
@@ -85,11 +75,9 @@ const bookSlot = () => {
 </script>
 
 <style scoped>
-/* ===== SECTION FULL WIDTH ===== */
 .card-bg-section {
   position: relative;
 
-  /* ✅ FULL WIDTH même si ton layout est centré ailleurs */
   width: 100vw;
   left: 50%;
   right: 50%;

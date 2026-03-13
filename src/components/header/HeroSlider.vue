@@ -3,7 +3,7 @@ import { ref } from 'vue'
 
 const carouselRef = ref(null)
 const activeIndex = ref(0)
-const intervalMs = 4000 // 4 secondes
+const intervalMs = 4000
 
 const slides = [
   {
@@ -35,24 +35,28 @@ const slides = [
   }
 ]
 
+const textAnimKey = ref(0)
+
 const handleChange = (newIndex) => {
   activeIndex.value = newIndex
+  textAnimKey.value++
 }
 
 const goToSlide = (index) => {
   if (carouselRef.value) {
     carouselRef.value.setActiveItem(index)
     activeIndex.value = index
+    textAnimKey.value++
   }
 }
 </script>
 
 <template>
   <section class="hero-section">
-    <!-- SLIDER ELEMENT PLUS -->
     <el-carousel
       ref="carouselRef"
       :interval="intervalMs"
+      :pause-on-hover="false"
       arrow="never"
       indicator-position="none"
       height="100vh"
@@ -69,39 +73,75 @@ const goToSlide = (index) => {
         >
           <div class="hero-overlay"></div>
 
-          <!-- container centré -->
           <div class="hero-inner">
-            <!-- contenu texte -->
-            <div class="hero-content">
-              <p class="hero-eyebrow">
-                Développeur Full-Stack • Expertise et passion
-              </p>
-              <h1 class="hero-title">
+            <div class="hero-content" :key="`${slide.id}-${textAnimKey}`">
+              <h1
+                v-motion
+                class="hero-title"
+                :initial="{ opacity: 0, y: 40, filter: 'blur(12px)' }"
+                :enter="{
+                  opacity: 1,
+                  y: 0,
+                  filter: 'blur(0px)',
+                  transition: { duration: 700, delay: 220 }
+                }"
+              >
                 {{ slide.title }}
               </h1>
-              <p class="hero-subtitle">
+
+              <p
+                v-motion
+                class="hero-subtitle"
+                :initial="{ opacity: 0, x: -30 }"
+                :enter="{
+                  opacity: 1,
+                  x: 0,
+                  transition: { duration: 550, delay: 350 }
+                }"
+              >
                 {{ slide.subtitle }}
               </p>
-              <p class="hero-description">
+
+              <p
+                v-motion
+                class="hero-description"
+                :initial="{ opacity: 0, y: 25 }"
+                :enter="{
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 600, delay: 480 }
+                }"
+              >
                 {{ slide.description }}
               </p>
 
-              <div class="hero-actions">
+              <div
+                v-motion
+                class="hero-actions"
+                :initial="{ opacity: 0, y: 20, scale: 0.96 }"
+                :enter="{
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  transition: { duration: 500, delay: 620 }
+                }"
+              >
                 <el-button
                   type="danger"
                   size="large"
                   round
+                  class="hero-btn"
                 >
                   {{ slide.ctaLabel }}
                 </el-button>
               </div>
+
             </div>
           </div>
         </div>
       </el-carousel-item>
     </el-carousel>
 
-    <!-- PAGINATION EN BARRES DANS LE CONTAINER -->
     <div class="hero-pagination-wrapper">
       <div class="hero-pagination">
         <button
@@ -120,7 +160,6 @@ const goToSlide = (index) => {
       </div>
     </div>
 
-    <!-- ICÔNE SCROLL DOWN AU CENTRE AVEC DOUBLE FLÈCHE -->
     <div class="scroll-indicator">
       <div class="mouse">
         <i class="fa-solid fa-angles-down"></i>
@@ -131,7 +170,6 @@ const goToSlide = (index) => {
 </template>
 
 <style scoped>
-/* FULL BLEED : la section prend toute la largeur écran */
 .hero-section {
   position: relative;
   width: 100vw;
@@ -140,36 +178,33 @@ const goToSlide = (index) => {
   margin-left: calc(50% - 50vw);
 }
 
-/* carousel plein écran */
 .hero-carousel {
   height: 100%;
 }
 
-/* slide avec image de fond */
 .hero-slide {
   position: relative;
   width: 100%;
   height: 100%;
-  background-position: center center;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  transform: scale(1.01);
 }
 
-/* overlay sombre */
 .hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.9) 0%,
-      rgba(0, 0, 0, 0.7) 35%,
-      rgba(0, 0, 0, 0.4) 60%,
-      rgba(0, 0, 0, 0.7) 100%
+    to right,
+    rgba(0,0,0,0.9) 0%,
+    rgba(0,0,0,0.7) 35%,
+    rgba(0,0,0,0.4) 60%,
+    rgba(0,0,0,0.7) 100%
   );
   z-index: 1;
 }
 
-/* container centré (comme ton site) */
 .hero-inner {
   position: relative;
   z-index: 2;
@@ -181,10 +216,9 @@ const goToSlide = (index) => {
   align-items: center;
 }
 
-/* contenu texte à gauche */
 .hero-content {
   max-width: 550px;
-  color: #ffffff;
+  color: #fff;
 }
 
 .hero-eyebrow {
@@ -218,10 +252,20 @@ const goToSlide = (index) => {
 
 .hero-actions {
   display: flex;
-  gap: 1rem;
 }
 
-/* ====== PAGINATION BARRES DANS LE CONTAINER ====== */
+.hero-btn {
+  min-width: 170px;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(255,75,75,0.25);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(255,75,75,0.35);
+}
+
 .hero-pagination-wrapper {
   position: absolute;
   left: 0;
@@ -246,40 +290,29 @@ const goToSlide = (index) => {
   border: none;
   cursor: pointer;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.25); /* fond gris clair */
-  padding: 0;
+  background: rgba(255,255,255,0.25);
 }
 
-/* barre de remplissage rouge */
 .hero-bar-fill {
   position: absolute;
   inset: 0;
   width: 0;
   background: #ff4b4b;
-  transform-origin: left center;
 }
 
-/* slide en cours : anim de 0 à 100% sur la durée du slide */
 .hero-bar.active .hero-bar-fill {
-  animation: barProgress var(--duration, 6000ms) linear forwards;
+  animation: barProgress var(--duration,4000ms) linear forwards;
 }
 
-/* slides déjà passés : barre remplie */
 .hero-bar.completed .hero-bar-fill {
   width: 100%;
 }
 
-/* animation de remplissage */
 @keyframes barProgress {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+  from { width:0 }
+  to { width:100% }
 }
 
-/* ====== SCROLL INDICATOR AVEC DOUBLE FLÈCHE ====== */
 .scroll-indicator {
   position: absolute;
   left: 50%;
@@ -289,7 +322,7 @@ const goToSlide = (index) => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
+  gap: .35rem;
   color: #f9fafb;
 }
 
@@ -301,7 +334,6 @@ const goToSlide = (index) => {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
 }
 
 .mouse i {
@@ -310,46 +342,20 @@ const goToSlide = (index) => {
 }
 
 .scroll-text {
-  font-size: 0.75rem;
-  letter-spacing: 0.16em;
+  font-size: .75rem;
+  letter-spacing: .16em;
   text-transform: uppercase;
 }
 
 @keyframes scrollArrow {
-  0% {
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-  40% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(6px);
-  }
+  0% {opacity:0; transform:translateY(-4px)}
+  40% {opacity:1; transform:translateY(0)}
+  100% {opacity:0; transform:translateY(6px)}
 }
 
-/* ====== RESPONSIVE ====== */
-@media (max-width: 900px) {
-  .hero-inner {
-    padding: 0 1.5rem;
-  }
-
-  .hero-content {
-    max-width: 100%;
-  }
-
-  .hero-title {
-    font-size: 2rem;
-  }
-
-  .hero-description {
-    max-width: 100%;
-  }
-
-  .hero-pagination {
-    padding: 0 1.5rem;
-  }
+@media (max-width:900px){
+  .hero-title{font-size:2rem}
+  .hero-content{max-width:100%}
+  .hero-description{max-width:100%}
 }
 </style>
