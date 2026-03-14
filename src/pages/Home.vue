@@ -86,12 +86,9 @@ const bookSlot = () => {
 
   padding: 5rem 0 5rem;
   overflow: hidden;
-
-  /* ⚠️ Mets ici EXACTEMENT la couleur de fond globale de ta page */
   background: #020617;
 }
 
-/* ===== IMAGE ===== */
 .card-bg {
   position: absolute;
   inset: 0;
@@ -105,7 +102,6 @@ const bookSlot = () => {
   opacity: 0.95;
 }
 
-/* ===== FONDU VERS LE HAUT ===== */
 .card-bg-fade-top {
   position: absolute;
   top: 0;
@@ -123,7 +119,6 @@ const bookSlot = () => {
   pointer-events: none;
 }
 
-/* ===== FONDU VERS LE BAS ===== */
 .card-bg-fade-bottom {
   position: absolute;
   bottom: 0;
@@ -141,7 +136,6 @@ const bookSlot = () => {
   pointer-events: none;
 }
 
-/* ===== CONTENU ===== */
 .card-bg-content {
   position: relative;
   z-index: 2;

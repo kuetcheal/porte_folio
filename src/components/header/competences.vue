@@ -7,6 +7,8 @@
         évolutives, en utilisant les technologies les plus adaptées à vos objectifs.
       </p>
 
+     
+
       <div class="grid">
         <article
           v-for="item in services"

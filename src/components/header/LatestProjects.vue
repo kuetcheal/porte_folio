@@ -48,7 +48,7 @@ const projects = [
   <section class="projects-section">
     <div class="projects-container">
       <h2 class="section-title">Derniers projets réalisés</h2>
-
+     
       <el-card
         v-for="project in projects"
         :key="project.id"
