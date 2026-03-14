@@ -1,4 +1,6 @@
 <script setup>
+import { Motion } from "motion-v"
+
 const profile = {
   title: 'Ma mission',
   name: 'Alex Stephane KUETCHE',
@@ -11,7 +13,6 @@ const profile = {
     'Assurance de la maintenance et de l’évolution des projets',
     'Collaboration étroite pour transformer vos idées en solutions concrètes'
   ],
-  // change le chemin si besoin
   photo: new URL('@/assets/infos3.jpg', import.meta.url).href
 }
 </script>
@@ -20,40 +21,89 @@ const profile = {
   <section class="profile-section">
     <div class="profile-container">
       <!-- COLONNE TEXTE -->
-      <div class="profile-text">
-        <h2 class="profile-title">
+      <Motion
+        tag="div"
+        class="profile-text"
+        :initial="{ opacity: 0, x: -40, y: 20 }"
+        :whileInView="{ opacity: 1, x: 0, y: 0 }"
+        :transition="{ duration: 0.9, ease: 'easeOut' }"
+        :viewport="{ once: true, amount: 0.3 }"
+      >
+        <Motion
+          tag="h2"
+          class="profile-title"
+          :initial="{ opacity: 0, y: 18 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.7, delay: 0.05, ease: 'easeOut' }"
+          :viewport="{ once: true, amount: 0.4 }"
+        >
           {{ profile.title }}
-        </h2>
+        </Motion>
 
-        <div class="profile-name-block">
+        <Motion
+          tag="div"
+          class="profile-name-block"
+          :initial="{ opacity: 0, y: 18 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.75, delay: 0.12, ease: 'easeOut' }"
+          :viewport="{ once: true, amount: 0.4 }"
+        >
           <p class="profile-name">
             {{ profile.name }}
           </p>
           <p class="profile-role">
             {{ profile.role }}
           </p>
-        </div>
+        </Motion>
 
-        <p class="profile-intro">
+        <Motion
+          tag="p"
+          class="profile-intro"
+          :initial="{ opacity: 0, y: 20 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.8, delay: 0.2, ease: 'easeOut' }"
+          :viewport="{ once: true, amount: 0.35 }"
+        >
           {{ profile.intro }}
-        </p>
+        </Motion>
 
-        <p class="profile-paragraph">
+        <Motion
+          tag="p"
+          class="profile-paragraph"
+          :initial="{ opacity: 0, y: 20 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.85, delay: 0.28, ease: 'easeOut' }"
+          :viewport="{ once: true, amount: 0.35 }"
+        >
           {{ profile.paragraph }}
-        </p>
+        </Motion>
 
-        <ul class="profile-list">
+        <Motion
+          tag="ul"
+          class="profile-list"
+          :initial="{ opacity: 0, y: 20 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.9, delay: 0.35, ease: 'easeOut' }"
+          :viewport="{ once: true, amount: 0.35 }"
+        >
           <li
             v-for="(item, idx) in profile.bullets"
             :key="idx"
           >
             {{ item }}
           </li>
-        </ul>
-      </div>
+        </Motion>
+      </Motion>
 
-      <!-- COLONNE IMAGE (pleine largeur / hauteur) -->
-      <div class="profile-photo-wrapper">
+      <!-- COLONNE IMAGE -->
+      <Motion
+        tag="div"
+        class="profile-photo-wrapper"
+        :initial="{ opacity: 0, x: 40, y: 20, scale: 0.96 }"
+        :whileInView="{ opacity: 1, x: 0, y: 0, scale: 1 }"
+        :transition="{ duration: 1, delay: 0.12, ease: 'easeOut' }"
+        :viewport="{ once: true, amount: 0.3 }"
+      >
         <el-card shadow="never" class="profile-card">
           <img
             :src="profile.photo"
@@ -61,7 +111,7 @@ const profile = {
             class="profile-photo"
           />
         </el-card>
-      </div>
+      </Motion>
     </div>
   </section>
 </template>
@@ -79,7 +129,6 @@ const profile = {
   padding: 0 1.5rem;
   display: flex;
   gap: 3.5rem;
-  /* 🔥 aligne le haut du texte et de l’image (plus de centrage vertical) */
   align-items: flex-start;
 }
 
@@ -151,7 +200,6 @@ const profile = {
 
 .profile-photo-wrapper {
   flex: 1;
-  /* prend toute la hauteur du bloc pour coller l’image en haut */
   align-self: stretch;
   display: flex;
 }
@@ -165,7 +213,7 @@ const profile = {
   border: none;
   border-radius: 0;
   box-shadow: none;
-  overflow: hidden; /* pour que l’image ne dépasse pas */
+  overflow: hidden;
 }
 
 /* supprime le padding interne d’Element Plus + étire sur toute la hauteur */
@@ -175,13 +223,13 @@ const profile = {
   height: 100%;
 }
 
-/* L’image remplit toute la zone disponible (comme ton rectangle rouge) */
+/* L’image remplit toute la zone disponible */
 .profile-photo {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;   /* recadrage si besoin */
-  border-radius: 0;   /* pas d’angles arrondis */
+  object-fit: cover;
+  border-radius: 0;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -189,6 +237,12 @@ const profile = {
 @media (max-width: 960px) {
   .profile-container {
     flex-direction: column;
+    padding: 0 1rem;
+    gap: 2rem;
+  }
+
+  .profile-text {
+    width: 100%;
   }
 
   .profile-photo-wrapper {
@@ -198,21 +252,65 @@ const profile = {
 
   .profile-card {
     height: auto;
+    width: 100%;
   }
 
   .profile-photo {
+    width: 100%;
     height: auto;
     max-height: 420px;
+    object-fit: cover;
+    object-position: center;
   }
 }
 
 @media (max-width: 600px) {
+  .profile-section {
+    padding: 3rem 0;
+  }
+
+  .profile-container {
+    padding: 0 0.8rem;
+    gap: 1.6rem;
+  }
+
+  .profile-text {
+    width: 100%;
+  }
+
   .profile-title {
     font-size: 2rem;
+    margin-bottom: 0.4rem;
   }
 
   .profile-name {
     font-size: 1.4rem;
+  }
+
+  .profile-role {
+    font-size: 1rem;
+  }
+
+  .profile-intro,
+  .profile-paragraph {
+    font-size: 0.97rem;
+    line-height: 1.8;
+  }
+
+  .profile-list {
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  .profile-photo-wrapper {
+    width: 100%;
+  }
+
+  .profile-photo {
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    object-position: center;
   }
 }
 </style>

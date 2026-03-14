@@ -1,31 +1,53 @@
 <template>
   <section class="services" id="competences">
     <div class="container">
-      <h2 class="title">Mes services</h2>
-      <p class="subtitle">
+      <Motion
+        tag="h2"
+        class="title"
+        :initial="{ opacity: 0, y: 20 }"
+        :whileInView="{ opacity: 1, y: 0 }"
+        :transition="{ duration: 0.7, ease: 'easeOut' }"
+        :viewport="{ once: true, amount: 0.35 }"
+      >
+        Mes services
+      </Motion>
+
+      <Motion
+        tag="p"
+        class="subtitle"
+        :initial="{ opacity: 0, y: 24 }"
+        :whileInView="{ opacity: 1, y: 0 }"
+        :transition="{ duration: 0.8, delay: 0.08, ease: 'easeOut' }"
+        :viewport="{ once: true, amount: 0.35 }"
+      >
         Développeur web full-stack, je conçois des solutions sur mesure, performantes et
         évolutives, en utilisant les technologies les plus adaptées à vos objectifs.
-      </p>
-
-     
+      </Motion>
 
       <div class="grid">
-        <article
-          v-for="item in services"
+        <Motion
+          v-for="(item, index) in services"
           :key="item.title"
+          tag="article"
           class="card"
+          :initial="{ opacity: 0, y: 30, scale: 0.97 }"
+          :whileInView="{ opacity: 1, y: 0, scale: 1 }"
+          :transition="{ duration: 0.75, delay: index * 0.08, ease: 'easeOut' }"
+          :viewport="{ once: true, amount: 0.2 }"
         >
           <div class="icon" v-html="item.icon"></div>
 
           <h3 class="card-title">{{ item.title }}</h3>
           <p class="card-desc">{{ item.desc }}</p>
-        </article>
+        </Motion>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
+import { Motion } from "motion-v"
+
 const services = [
   {
     title: "E-commerce sur\nmesure",
@@ -68,102 +90,163 @@ const services = [
 
 <style scoped>
 /* section */
-.services{
+.services {
   padding: 50px 0;
-  /* border: 1px solid red; */
   padding-top: 50px;
+  background: #050816;
 }
 
-.container{
+.container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1.5rem;
   text-align: center;
 }
 
-.title{
+.title {
   font-size: clamp(28px, 3vw, 42px);
   font-weight: 700;
   margin-bottom: 10px;
+  color: #f9fafb;
 }
 
-.subtitle{
+.subtitle {
   max-width: 900px;
   margin: 0 auto 50px;
-  opacity: .85;
+  opacity: 0.85;
   line-height: 1.6;
+  color: #e5e7eb;
 }
 
 /* grid */
-.grid{
+.grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 28px;
+  align-items: stretch;
 }
 
 /* card */
-.card{
-  background: rgba(12, 16, 26, .55);
-  border: 1px solid rgba(255,255,255,.18);
+.card {
+  background: rgba(12, 16, 26, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 14px;
   padding: 34px 26px 28px;
-  max-height: 250px;
+  min-height: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: transform .25s ease, background .25s ease, box-shadow .25s ease, border-color .25s ease;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
   backdrop-filter: blur(6px);
 }
 
-/* ✅ Hover comme ton image : fond plus clair + “élévation” */
-.card:hover{
-  background: rgba(70, 110, 165, .22); /* effet bleu/gris */
-  border-color: rgba(255,255,255,.28);
-  box-shadow: 0 16px 45px rgba(0,0,0,.55);
+.card:hover {
+  background: rgba(70, 110, 165, 0.22);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.55);
   transform: translateY(-6px) scale(1.02);
 }
 
-.icon{
+.icon {
   width: 76px;
   height: 76px;
   margin-bottom: 18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.icon :deep(svg){
+.icon :deep(svg) {
   width: 72px;
   height: 72px;
-  fill: rgba(255,255,255,.9);
-  transition: transform .25s ease, opacity .25s ease;
+  fill: rgba(255, 255, 255, 0.9);
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-.card:hover .icon :deep(svg){
+.card:hover .icon :deep(svg) {
   transform: scale(1.05);
   opacity: 1;
 }
 
-.card-title{
+.card-title {
   font-size: 22px;
   font-weight: 700;
   margin: 6px 0 12px;
-  white-space: pre-line; /* pour les retours à la ligne dans le title */
+  white-space: pre-line;
+  color: #f9fafb;
+  line-height: 1.3;
 }
 
-.card-desc{
-  opacity: .85;
+.card-desc {
+  opacity: 0.85;
   font-size: 15px;
   line-height: 1.6;
   max-width: 260px;
+  color: #e5e7eb;
 }
 
 /* responsive */
-@media (max-width: 1100px){
-  .grid{ grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-@media (max-width: 600px){
-  .grid{ grid-template-columns: 1fr; }
-  .card{ min-height: auto; }
+
+@media (max-width: 600px) {
+  .services {
+    padding: 3rem 0;
+  }
+
+  .container {
+    padding: 0 0.8rem;
+  }
+
+  .title {
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    margin: 0 auto 2rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .card {
+    min-height: auto;
+    padding: 26px 18px 22px;
+    border-radius: 12px;
+  }
+
+  .icon {
+    width: 68px;
+    height: 68px;
+    margin-bottom: 14px;
+  }
+
+  .icon :deep(svg) {
+    width: 62px;
+    height: 62px;
+  }
+
+  .card-title {
+    font-size: 20px;
+    margin: 4px 0 10px;
+  }
+
+  .card-desc {
+    max-width: 100%;
+    font-size: 0.94rem;
+    line-height: 1.7;
+  }
 }
 </style>

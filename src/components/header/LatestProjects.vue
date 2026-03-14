@@ -1,4 +1,6 @@
 <script setup>
+import { Motion } from "motion-v"
+
 const projects = [
   {
     id: 1,
@@ -47,56 +49,80 @@ const projects = [
 <template>
   <section class="projects-section">
     <div class="projects-container">
-      <h2 class="section-title">Derniers projets réalisés</h2>
-     
-      <el-card
-        v-for="project in projects"
-        :key="project.id"
-        shadow="never"
-        class="project-card"
+      <Motion
+        tag="h2"
+        class="section-title"
+        :initial="{ opacity: 0, y: 22 }"
+        :whileInView="{ opacity: 1, y: 0 }"
+        :transition="{ duration: 0.7, ease: 'easeOut' }"
+        :viewport="{ once: true, amount: 0.35 }"
       >
-        <div class="project-row">
-          <!-- COLONNE IMAGE -->
-          <div class="project-media">
-            <img :src="project.image" :alt="project.title" />
-          </div>
+        Derniers projets réalisés
+      </Motion>
 
-          <!-- COLONNE TEXTE -->
-          <div class="project-content">
-            <h3 class="project-title">
-              {{ project.title }}
-            </h3>
+      <Motion
+        v-for="(project, index) in projects"
+        :key="project.id"
+        tag="div"
+        :initial="{ opacity: 0, y: 35, scale: 0.98 }"
+        :whileInView="{ opacity: 1, y: 0, scale: 1 }"
+        :transition="{ duration: 0.8, delay: index * 0.08, ease: 'easeOut' }"
+        :viewport="{ once: true, amount: 0.2 }"
+      >
+        <el-card
+          shadow="never"
+          class="project-card"
+        >
+          <div class="project-row">
+            <!-- COLONNE IMAGE -->
+            <div class="project-media">
+              <img :src="project.image" :alt="project.title" />
+            </div>
 
-            <p class="project-technos">
-              <span>Technologies :</span>
-              {{ project.technologies }}
-            </p>
+            <!-- COLONNE TEXTE -->
+            <div class="project-content">
+              <h3 class="project-title">
+                {{ project.title }}
+              </h3>
 
-            <p class="project-subtitle">
-              Fonctionnalités principales :
-            </p>
+              <p class="project-technos">
+                <span>Technologies :</span>
+                {{ project.technologies }}
+              </p>
 
-            <ul class="project-features">
-              <li v-for="(feature, idx) in project.features" :key="idx">
-                {{ feature }}
-              </li>
-            </ul>
+              <p class="project-subtitle">
+                Fonctionnalités principales :
+              </p>
 
-            <div class="project-actions">
-              <el-button type="danger" size="large" round>
-                <i class="fa-solid fa-up-right-from-square btn-icon" />
-                Consulter
-              </el-button>
+              <ul class="project-features">
+                <li v-for="(feature, idx) in project.features" :key="idx">
+                  {{ feature }}
+                </li>
+              </ul>
+
+              <div class="project-actions">
+                <el-button type="danger" size="large" round>
+                  <i class="fa-solid fa-up-right-from-square btn-icon" />
+                  Consulter
+                </el-button>
+              </div>
             </div>
           </div>
-        </div>
-      </el-card>
+        </el-card>
+      </Motion>
 
-      <div class="view-more-wrapper">
-        <el-button type="danger" plain round>
+      <Motion
+        tag="div"
+        class="view-more-wrapper"
+        :initial="{ opacity: 0, y: 24 }"
+        :whileInView="{ opacity: 1, y: 0 }"
+        :transition="{ duration: 0.75, delay: 0.15, ease: 'easeOut' }"
+        :viewport="{ once: true, amount: 0.4 }"
+      >
+        <el-button type="danger" size="large" round>
           Voir plus de projets
         </el-button>
-      </div>
+      </Motion>
     </div>
   </section>
 </template>
@@ -118,6 +144,7 @@ const projects = [
   font-size: 1.9rem;
   font-weight: 800;
   margin-bottom: 2.5rem;
+  color: #f9fafb;
 }
 
 /* ===== CARD ===== */
@@ -139,22 +166,20 @@ const projects = [
 /* ===== ROW ===== */
 .project-row {
   display: flex;
-  align-items: stretch; /* -> tous les enfants ont la même hauteur */
+  align-items: stretch;
 }
 
 /* ===== IMAGE ===== */
-
-/* La colonne image prend 260px de large,
-   et sa hauteur suit celle du contenu grâce à align-items:stretch */
 .project-media {
   flex: 0 0 260px;
-  display: flex;        /* pour que l'img prenne 100% en hauteur */
+  display: flex;
 }
 
 .project-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;    /* recadre proprement l’image */
+  object-fit: cover;
+  display: block;
 }
 
 /* ===== TEXTE ===== */
@@ -163,12 +188,15 @@ const projects = [
   flex: 1;
   color: #f9fafb;
   padding: 1.2rem 1.6rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-title {
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 0.6rem;
+  line-height: 1.45;
 }
 
 .project-technos {
@@ -192,7 +220,7 @@ const projects = [
   margin: 0;
   padding-left: 1.1rem;
   font-size: 0.86rem;
-  line-height: 1.45;
+  line-height: 1.55;
   color: #e5e7eb;
 }
 
@@ -206,8 +234,9 @@ const projects = [
   justify-content: flex-end;
 }
 
-/* bouton un peu plus massif */
-.project-actions :deep(.el-button) {
+/* boutons */
+.project-actions :deep(.el-button),
+.view-more-wrapper :deep(.el-button) {
   padding: 0.75rem 2rem;
   font-size: 0.95rem;
   font-weight: 600;
@@ -227,6 +256,10 @@ const projects = [
 /* ===== RESPONSIVE ===== */
 
 @media (max-width: 900px) {
+  .projects-container {
+    padding: 0 1rem;
+  }
+
   .project-row {
     flex-direction: column;
   }
@@ -234,9 +267,9 @@ const projects = [
   .project-media {
     flex: none;
     width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-    height: 220px; /* carré sur mobile */
+    max-width: 100%;
+    height: 240px;
+    margin: 0;
   }
 
   .project-media img {
@@ -244,8 +277,91 @@ const projects = [
     height: 100%;
   }
 
+  .project-content {
+    padding: 1.1rem 1rem 1.2rem;
+  }
+
+  .project-title {
+    font-size: 1.02rem;
+    line-height: 1.45;
+  }
+
+  .project-technos,
+  .project-features {
+    font-size: 0.9rem;
+  }
+
+  .project-subtitle {
+    font-size: 0.95rem;
+  }
+
   .project-actions {
     justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-section {
+    padding: 3rem 0;
+  }
+
+  .projects-container {
+    padding: 0 0.8rem;
+  }
+
+  .section-title {
+    font-size: 1.65rem;
+    margin-bottom: 2rem;
+  }
+
+  .project-card {
+    margin-bottom: 1.2rem;
+  }
+
+  .project-media {
+    height: 210px;
+  }
+
+  .project-content {
+    padding: 1rem 0.9rem 1.1rem;
+  }
+
+  .project-title {
+    font-size: 0.98rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .project-technos {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .project-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .project-features {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    padding-left: 1rem;
+  }
+
+  .project-actions {
+    margin-top: 1rem;
+    justify-content: flex-start;
+  }
+
+  .project-actions :deep(.el-button),
+  .view-more-wrapper :deep(.el-button) {
+    width: 100%;
+    justify-content: center;
+    padding: 0.78rem 1.2rem;
+    font-size: 0.92rem;
+  }
+
+  .view-more-wrapper {
+    margin-top: 1.6rem;
   }
 }
 </style>
