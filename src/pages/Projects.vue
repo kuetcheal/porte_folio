@@ -6,7 +6,14 @@
     >
       <div class="projects-hero-overlay"></div>
 
-      <div class="projects-hero-inner">
+      <Motion
+        tag="div"
+        class="projects-hero-inner"
+        :initial="{ opacity: 0, y: 28, scale: 0.985 }"
+        :whileInView="{ opacity: 1, y: 0, scale: 1 }"
+        :transition="{ duration: 0.9, ease: 'easeOut' }"
+        :viewport="{ once: true, amount: 0.35 }"
+      >
         <h1 class="projects-hero-title">
           Développement Web Moderne
         </h1>
@@ -15,66 +22,78 @@
           Découvrez mes projets de création d'applications web et mobiles performantes
           et sur mesure, couvrant Front-End, Back-End, Déploiement et Automatisation.
         </p>
-      </div>
+      </Motion>
     </section>
 
     <section class="projects-section">
-    <div class="projects-container">
-      <el-card
-        v-for="project in projects"
-        :key="project.id"
-        shadow="never"
-        class="project-card"
-      >
-        <div class="project-row">
-          <!-- COLONNE IMAGE -->
-          <div class="project-media">
-            <img :src="project.image" :alt="project.title" />
-          </div>
+      
+      <div class="projects-container">
+         <div class="titre-projet"><h2>Projets personnel et professionnels réalisés</h2></div> 
+        <Motion
+          v-for="(project, index) in projects"
+          :key="project.id"
+          tag="div"
+          :initial="{ opacity: 0, y: 34, scale: 0.985 }"
+          :whileInView="{ opacity: 1, y: 0, scale: 1 }"
+          :transition="{ duration: 0.75, delay: index * 0.08, ease: 'easeOut' }"
+          :viewport="{ once: true, amount: 0.2 }"
+        >
+        
+          <el-card
+            shadow="never"
+            class="project-card"
+          >
+            <div class="project-row">
+              <!-- COLONNE IMAGE -->
+              <div class="project-media">
+                <img :src="project.image" :alt="project.title" />
+              </div>
 
-          <!-- COLONNE TEXTE -->
-          <div class="project-content">
-            <h3 class="project-title">
-              {{ project.title }}
-            </h3>
+              <!-- COLONNE TEXTE -->
+              <div class="project-content">
+                <h3 class="project-title">
+                  {{ project.title }}
+                </h3>
 
-            <p class="project-technos">
-              <span>Technologies :</span>
-              {{ project.technologies }}
-            </p>
+                <p class="project-technos">
+                  <span>Technologies :</span>
+                  {{ project.technologies }}
+                </p>
 
-            <p class="project-subtitle">
-              Fonctionnalités principales :
-            </p>
+                <p class="project-subtitle">
+                  Fonctionnalités principales :
+                </p>
 
-            <ul class="project-features">
-              <li v-for="(feature, idx) in project.features" :key="idx">
-                {{ feature }}
-              </li>
-            </ul>
+                <ul class="project-features">
+                  <li v-for="(feature, idx) in project.features" :key="idx">
+                    {{ feature }}
+                  </li>
+                </ul>
 
-            <div class="project-actions">
-              <el-button type="danger" size="large" round>
-                <i class="fa-solid fa-up-right-from-square btn-icon" />
-                Consulter
-              </el-button>
+                <div class="project-actions">
+                  <el-button type="danger" size="large" round>
+                    <i class="fa-solid fa-up-right-from-square btn-icon" />
+                    Consulter
+                  </el-button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </el-card>
-    </div>
-  </section>
+          </el-card>
+        </Motion>
+      </div>
+    </section>
   </main>
 </template>
 
-
 <script setup>
+import { Motion } from "motion-v"
+
 const bgHero = new URL("@/assets/infos1.jpg", import.meta.url).href
 
 const projects = [
   {
     id: 1,
-    title: "Application web de locations immobilières",
+    title: "EasyTravel : Application de reservation de billet de voyage",
     technologies:
       "Next.js, TypeScript, TailwindCSS, PostgreSQL, Prisma, Jest, Git, GitLab, AWS, Nginx, HTTPS/SSL, JWT",
     features: [
@@ -88,9 +107,9 @@ const projects = [
   {
     id: 2,
     title:
-      "maestroSIGRAI : application Web Multi-Tenant (SaaS) de gestion des risques",
+      "EventGO : application Mobile cross platform de souscription aux événements",
     technologies:
-      "React, TypeScript, TailwindCSS, Node.js, NestJS, REST API, WebSockets, PostgreSQL, Prisma, Jest, GitLab, CI/CD, Docker",
+      "React, JavaScript, TailwindCSS, Node.js, Flutter, cloudinary, MySQL, OVH, Render, Github, Docker",
     features: [
       "Gestion des rôles (RBAC) et authentification SSO",
       "Notifications en temps réel",
@@ -102,7 +121,7 @@ const projects = [
   {
     id: 3,
     title:
-      "maestroRGPD : refonte d’une application SaaS de conformité RGPD",
+      "Mobiliis : application d'accompagnement dans les procedures de voyages",
     technologies:
       "React, TypeScript, TailwindCSS, Java, Spring Boot, REST API, MySQL, Redis, Sequelize, Jest, Git, Docker, Nginx, JWT",
     features: [
@@ -112,6 +131,33 @@ const projects = [
       "Lazy loading des composants lourds"
     ],
     image: new URL('@/assets/infos3.jpg', import.meta.url).href
+  },
+  {
+    id: 4,
+    title:
+      "conception de 14 sites écoles pour le groupe universitaire C&D",
+    technologies:
+      "React, TypeScript, TailwindCSS, NuxtJS, VueJS, REST API, POSTGRESQL, Redis, Kubernetes, Jest, Git, Docker, Nginx, JWT",
+    features: [
+      "Tableau de bord administrateur",
+      "Interfaces responsives",
+      "Timeline interactive des actions",
+      "Lazy loading des composants lourds"
+    ],
+    image: new URL('@/assets/cd.png', import.meta.url).href
+  },
+   {
+    id: 5,
+    title:  "Mon portFolio : site vitrine décrivant mon parcours",
+    technologies:
+      "VueJS, JavaScript, elementPlus, Motion, REST API, MySQL, Kubernetes, Git, Hostinger, JWT",
+    features: [
+      "Tableau de bord administrateur",
+      "Interfaces responsives",
+      "Timeline interactive des actions",
+      "Lazy loading des composants lourds"
+    ],
+    image: new URL('@/assets/cd.png', import.meta.url).href
   }
 ]
 </script>
@@ -122,6 +168,7 @@ const projects = [
   color: #f9fafb;
 }
 
+/* HERO */
 .projects-hero {
   position: relative;
   width: 100vw;
@@ -156,6 +203,7 @@ const projects = [
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .projects-hero-subtitle {
@@ -164,34 +212,7 @@ const projects = [
   color: #e5e7eb;
 }
 
-
-.projects-section {
-  padding: 3rem 0 4rem;
-}
-
-
-@media (max-width: 900px) {
-  .projects-hero {
-    height: 400px;
-  }
-
-  .projects-hero-title {
-    font-size: 1.6rem !important;
-  
-  }
-
-  .projects-hero-subtitle {
-    font-size: 1.2rem !important;
-  }
-}
-
-@media (max-width: 600px) {
-  .projects-hero-title {
-    font-size: 1.9rem;
-  }
-}
-
-
+/* SECTION */
 .projects-section {
   padding: 4rem 0;
   background: #050816;
@@ -203,15 +224,11 @@ const projects = [
   padding: 0 1.5rem;
 }
 
-.section-title {
-  text-align: center;
-  font-size: 1.9rem;
-  font-weight: 800;
-  margin-bottom: 2.5rem;
+.titre-projet{
+  font-size: 25px;
 }
 
-/* ===== CARD ===== */
-
+/* CARD */
 .project-card {
   background: #222731;
   border-radius: 0;
@@ -221,46 +238,48 @@ const projects = [
   overflow: hidden;
 }
 
-/* supprime le padding d’Element Plus */
 .project-card :deep(.el-card__body) {
   padding: 0;
 }
 
-/* ===== ROW ===== */
+/* ROW */
 .project-row {
   display: flex;
-  align-items: stretch; /* -> tous les enfants ont la même hauteur */
+  align-items: stretch;
 }
 
-
+/* IMAGE */
 .project-media {
   flex: 0 0 260px;
-  display: flex;       
+  display: flex;
 }
 
 .project-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;    /* recadre proprement l’image */
+  object-fit: cover;
+  display: block;
 }
 
-/* ===== TEXTE ===== */
-
+/* TEXTE */
 .project-content {
   flex: 1;
   color: #f9fafb;
   padding: 1.2rem 1.6rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-title {
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 0.6rem;
+  line-height: 1.45;
 }
 
 .project-technos {
   font-size: 0.86rem;
-  line-height: 1.5;
+  line-height: 1.55;
   margin-bottom: 0.8rem;
   color: #e5e7eb;
 }
@@ -279,7 +298,7 @@ const projects = [
   margin: 0;
   padding-left: 1.1rem;
   font-size: 0.86rem;
-  line-height: 1.45;
+  line-height: 1.5;
   color: #e5e7eb;
 }
 
@@ -293,7 +312,6 @@ const projects = [
   justify-content: flex-end;
 }
 
-/* bouton un peu plus massif */
 .project-actions :deep(.el-button) {
   padding: 0.75rem 2rem;
   font-size: 0.95rem;
@@ -304,16 +322,30 @@ const projects = [
   margin-right: 0.5rem;
 }
 
-/* ===== BOUTON GLOBAL ===== */
-
-.view-more-wrapper {
-  margin-top: 2rem;
-  text-align: center;
-}
-
-/* ===== RESPONSIVE ===== */
-
+/* TABLETTE */
 @media (max-width: 900px) {
+  .projects-hero {
+    height: 340px;
+  }
+
+  .projects-hero-inner {
+    padding: 0 1rem;
+  }
+
+  .projects-hero-title {
+    font-size: 1.85rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .projects-hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .projects-container {
+    padding: 0 1rem;
+  }
+
   .project-row {
     flex-direction: column;
   }
@@ -321,9 +353,9 @@ const projects = [
   .project-media {
     flex: none;
     width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-    height: 220px; /* carré sur mobile */
+    max-width: 100%;
+    height: 240px;
+    margin: 0;
   }
 
   .project-media img {
@@ -331,10 +363,137 @@ const projects = [
     height: 100%;
   }
 
+  .project-content {
+    padding: 1.1rem 1rem 1.2rem;
+  }
+
+  .project-title {
+    font-size: 1.02rem;
+  }
+
+  .project-technos,
+  .project-features {
+    font-size: 0.9rem;
+  }
+
+  .project-subtitle {
+    font-size: 0.95rem;
+  }
+
   .project-actions {
     justify-content: flex-start;
   }
+}
 
- 
+/* MOBILE */
+@media (max-width: 600px) {
+  .projects-hero {
+    height: 300px;
+  }
+
+  .projects-hero-inner {
+    padding: 0 0.85rem;
+    max-width: 100%;
+  }
+
+  .projects-hero-title {
+    font-size: 1.45rem;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+
+  .projects-hero-subtitle {
+    font-size: 0.96rem;
+    line-height: 1.75;
+  }
+
+  .projects-section {
+    padding: 2.7rem 0 3rem;
+  }
+
+  .projects-container {
+    padding: 0 0.75rem;
+  }
+
+  .project-card {
+    margin-bottom: 1.15rem;
+  }
+
+  .project-media {
+    height: 210px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .project-content {
+    padding: 1rem 0.9rem 1.1rem;
+  }
+
+  .project-title {
+    font-size: 0.98rem;
+    margin-bottom: 0.65rem;
+    line-height: 1.45;
+  }
+
+  .titre-projet{
+  font-size: 15px;
+}
+
+  .project-technos {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 0.7rem;
+  }
+
+  .project-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .project-features {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    padding-left: 1rem;
+  }
+
+  .project-actions {
+    margin-top: 1rem;
+    justify-content: flex-start;
+  }
+
+  .project-actions :deep(.el-button) {
+    width: 100%;
+    justify-content: center;
+    padding: 0.78rem 1.2rem;
+    font-size: 0.92rem;
+  }
+}
+
+/* PETIT MOBILE */
+@media (max-width: 420px) {
+  .projects-container {
+    padding: 0 0.65rem;
+  }
+
+  .project-media {
+    height: 190px;
+  }
+
+  .project-content {
+    padding: 0.95rem 0.82rem 1rem;
+  }
+
+  .project-title {
+    font-size: 0.94rem;
+  }
+
+  .project-technos,
+  .project-features {
+    font-size: 0.84rem;
+  }
+
+  .project-subtitle {
+    font-size: 0.87rem;
+  }
 }
 </style>
