@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { Motion } from 'motion-v'
 
 const heroBg = new URL('@/assets/infos2.jpg', import.meta.url).href
 
@@ -16,7 +17,6 @@ const services = [
     budget: 'À négocier',
     intro:
       "Transformez votre vision en une boutique en ligne performante qui convertit vos visiteurs en clients fidèles.",
-
     featuresTitle: '✨ Fonctionnalités incluses',
     features: [
       'Interface utilisateur intuitive et moderne',
@@ -26,7 +26,6 @@ const services = [
       'Optimisation mobile et performances',
       "Intégration des solutions de livraison"
     ],
-
     benefitsTitle: '🎯 Bénéfices pour vous',
     benefits: [
       'Augmentez vos ventes en ligne',
@@ -35,43 +34,21 @@ const services = [
       'Gagnez du temps grâce à l’automatisation',
       'Accédez à de nouveaux marchés'
     ],
-
     processTitle: '🚀 Mon processus de travail',
     steps: [
-      {
-        num: 1,
-        title: 'Analyse de vos besoins',
-      },
-      {
-        num: 2,
-        title: 'Conception UX/UI',
-        
-      },
-      {
-        num: 3,
-        title: 'Développer & intégration',
-       
-      },
-      {
-        num: 4,
-        title: 'Tests & optimisations',
-       
-      },
-      {
-        num: 5,
-        title: 'Lancement & formation',
-        
-      }
+      { num: 1, title: 'Analyse de vos besoins' },
+      { num: 2, title: 'Conception UX/UI' },
+      { num: 3, title: 'Développement & intégration' },
+      { num: 4, title: 'Tests & optimisations' },
+      { num: 5, title: 'Lancement & formation' }
     ],
-    cta: 'Demander un devis gratuit'
+    cta: 'Contactez moi '
   },
-
   {
     key: 'saas',
     name: 'Applications SaaS Métier',
     icon: 'fa-gears',
-    short:
-      'Automatisez vos processus avec une solution SaaS qui colle à votre activité.',
+    short: 'Automatisez vos processus avec une solution SaaS qui colle à votre activité.',
     color: '#7c3aed',
     gradientFrom: '#581c87',
     gradientTo: '#a855f7',
@@ -79,7 +56,6 @@ const services = [
     budget: 'À négocier',
     intro:
       "Gagnez en productivité avec une application web qui répond exactement aux besoins de votre métier.",
-
     featuresTitle: '✨ Fonctionnalités incluses',
     features: [
       'Architecture scalable et sécurisée',
@@ -89,7 +65,6 @@ const services = [
       'Synchronisation automatique des données',
       'Interface responsive et moderne'
     ],
-
     benefitsTitle: '🎯 Bénéfices pour vous',
     benefits: [
       'Automatisez vos tâches répétitives',
@@ -98,33 +73,16 @@ const services = [
       "Disposez d’indicateurs clés fiables",
       'Réduisez les erreurs manuelles'
     ],
-
     processTitle: '🚀 Mon processus de travail',
     steps: [
-      {
-        num: 1,
-        title: 'Audit de vos processus',
-      },
-      {
-        num: 2,
-        title: 'Conception architectural',
-      },
-      {
-        num: 3,
-        title: 'Développement itératif',
-      },
-      {
-        num: 4,
-        title: 'Tests & ajustements',
-      },
-      {
-        num: 5,
-        title: 'Déploiement & évolution',
-      }
+      { num: 1, title: 'Audit de vos processus' },
+      { num: 2, title: 'Conception architecturale' },
+      { num: 3, title: 'Développement itératif' },
+      { num: 4, title: 'Tests & ajustements' },
+      { num: 5, title: 'Déploiement & évolution' }
     ],
     cta: 'Parler de votre projet SaaS'
   },
-
   {
     key: 'automation',
     name: 'Automatiser et Intégrer',
@@ -137,7 +95,6 @@ const services = [
     budget: 'À négocier',
     intro:
       "Faites communiquer vos systèmes entre eux pour éliminer les tâches manuelles et gagner un temps précieux.",
-
     featuresTitle: '✨ Fonctionnalités incluses',
     features: [
       'Intégration d’API tierces (CRM, ERP, etc.)',
@@ -147,7 +104,6 @@ const services = [
       'Migration et import/export de données',
       'Documentation technique complète'
     ],
-
     benefitsTitle: '🎯 Bénéfices pour vous',
     benefits: [
       'Éliminez les saisies manuelles',
@@ -156,33 +112,16 @@ const services = [
       'Unifiez vos sources de données',
       'Gagnez en visibilité sur votre activité'
     ],
-
     processTitle: '🚀 Mon processus de travail',
     steps: [
-      {
-        num: 1,
-        title: 'Cartographie de votre écosystème',
-      },
-      {
-        num: 2,
-        title: 'Identification des opportunités',
-      },
-      {
-        num: 3,
-        title: 'Développement des connecteurs',
-      },
-      {
-        num: 4,
-        title: 'Tests & monitoring',
-      },
-      {
-        num: 5,
-        title: 'Documentation & transfert',
-      }
+      { num: 1, title: 'Cartographie de votre écosystème' },
+      { num: 2, title: 'Identification des opportunités' },
+      { num: 3, title: 'Développement des connecteurs' },
+      { num: 4, title: 'Tests & monitoring' },
+      { num: 5, title: 'Documentation & transfert' }
     ],
     cta: 'Mettre en place des automatisations'
   },
-
   {
     key: 'seo',
     name: 'Optimisation & SEO',
@@ -195,7 +134,6 @@ const services = [
     budget: 'À négocier',
     intro:
       "Améliorez la vitesse, le référencement et l’expérience utilisateur de votre site pour maximiser vos résultats.",
-
     featuresTitle: '✨ Fonctionnalités incluses',
     features: [
       'Audit technique et SEO complet',
@@ -205,7 +143,6 @@ const services = [
       'Stratégie de contenu SEO',
       'Suivi et reporting des performances'
     ],
-
     benefitsTitle: '🎯 Bénéfices pour vous',
     benefits: [
       'Améliorez votre positionnement Google',
@@ -214,29 +151,13 @@ const services = [
       'Convertissez plus de visiteurs',
       'Améliorez la satisfaction des utilisateurs'
     ],
-
     processTitle: '✨ Mon processus de travail',
     steps: [
-      {
-        num: 1,
-        title: 'Audit complet de votre site',
-      },
-      {
-        num: 2,
-        title: 'Rapport de recommandations',
-      },
-      {
-        num: 3,
-        title: 'Implémentation des optimisations',
-      },
-      {
-        num: 4,
-        title: 'Tests de performance',
-      },
-      {
-        num: 5,
-        title: 'Suivi mensuel',
-      }
+      { num: 1, title: 'Audit complet de votre site' },
+      { num: 2, title: 'Rapport de recommandations' },
+      { num: 3, title: 'Implémentation des optimisations' },
+      { num: 4, title: 'Tests de performance' },
+      { num: 5, title: 'Suivi mensuel' }
     ],
     cta: 'Booster la visibilité de mon site'
   }
@@ -255,35 +176,44 @@ const selectService = (key) => {
 
 <template>
   <main class="services-page">
-    <!-- ========= HERO ========= -->
     <section
       class="services-hero"
       :style="{ backgroundImage: `url(${heroBg})` }"
     >
       <div class="services-hero-overlay"></div>
 
-      <div class="services-hero-inner">
+      <Motion
+        tag="div"
+        class="services-hero-inner"
+        :initial="{ opacity: 0, y: 26, scale: 0.985 }"
+        :whileInView="{ opacity: 1, y: 0, scale: 1 }"
+        :transition="{ duration: 0.9, ease: 'easeOut' }"
+        :viewport="{ once: true, amount: 0.35 }"
+      >
         <h1 class="services-hero-title">
-          Mes Services de Développement Web
+          Mes Compétences de Développement Web
         </h1>
         <p class="services-hero-subtitle">
-          Des solutions techniques sur mesure pour transformer vos idées en
+          Je conçois des solutions techniques sur mesure pour transformer vos idées en
           applications web performantes et rentables.
         </p>
-      </div>
+      </Motion>
     </section>
 
-    <!-- ========= CONTENU ========= -->
     <section class="services-section">
       <div class="services-container">
-        <!-- ====== TABS (4 CARTES) ====== -->
         <div class="services-tabs">
-          <button
-            v-for="service in services"
+          <Motion
+            v-for="(service, index) in services"
             :key="service.key"
+            tag="button"
             class="service-tab"
             :class="{ active: activeKey === service.key }"
             @click="selectService(service.key)"
+            :initial="{ opacity: 0, y: 26, scale: 0.97 }"
+            :whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            :transition="{ duration: 0.65, delay: index * 0.07, ease: 'easeOut' }"
+            :viewport="{ once: true, amount: 0.2 }"
           >
             <div
               class="service-tab-inner"
@@ -291,33 +221,64 @@ const selectService = (key) => {
                 backgroundImage: `linear-gradient(135deg, ${service.gradientFrom}, ${service.gradientTo})`
               }"
             >
-              <div class="tab-icon-wrapper">
-                <i :class="['fa-solid', service.icon]"></i>
+              <div class="tab-head">
+                <div class="tab-icon-wrapper">
+                  <i :class="['fa-solid', service.icon]"></i>
+                </div>
+                <h3 class="tab-title">{{ service.name }}</h3>
               </div>
-              <h3 class="tab-title">{{ service.name }}</h3>
+
               <p class="tab-short">
                 {{ service.short }}
               </p>
             </div>
-          </button>
+          </Motion>
         </div>
 
-        <!-- ====== BLOC DÉTAIL ====== -->
-        <section class="service-details">
+        <Motion
+          tag="section"
+          class="service-details"
+          :initial="{ opacity: 0, y: 30 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.8, ease: 'easeOut' }"
+          :viewport="{ once: true, amount: 0.15 }"
+        >
           <header
             class="service-header"
             :style="{ '--accent': currentService.color }"
           >
             <div class="service-header-top">
-              <h2 class="service-title">
+              <Motion
+                tag="h2"
+                class="service-title"
+                :key="currentService.key + '-title'"
+                :initial="{ opacity: 0, y: 18 }"
+                :animate="{ opacity: 1, y: 0 }"
+                :transition="{ duration: 0.45, ease: 'easeOut' }"
+              >
                 {{ currentService.name }}
-              </h2>
-              <p class="service-intro">
+              </Motion>
+
+              <Motion
+                tag="p"
+                class="service-intro"
+                :key="currentService.key + '-intro'"
+                :initial="{ opacity: 0, y: 16 }"
+                :animate="{ opacity: 1, y: 0 }"
+                :transition="{ duration: 0.5, delay: 0.05, ease: 'easeOut' }"
+              >
                 {{ currentService.intro }}
-              </p>
+              </Motion>
             </div>
 
-            <div class="service-badges">
+            <Motion
+              tag="div"
+              class="service-badges"
+              :key="currentService.key + '-badges'"
+              :initial="{ opacity: 0, y: 12 }"
+              :animate="{ opacity: 1, y: 0 }"
+              :transition="{ duration: 0.45, delay: 0.08, ease: 'easeOut' }"
+            >
               <span class="badge badge-outline">
                 <i class="fa-solid fa-handshake-angle badge-icon" />
                 {{ currentService.budget }}
@@ -326,93 +287,114 @@ const selectService = (key) => {
                 <i class="fa-solid fa-clock badge-icon" />
                 {{ currentService.duration }}
               </span>
-            </div>
+            </Motion>
           </header>
 
           <div class="service-columns">
-            <div class="service-col">
+            <Motion
+              tag="div"
+              class="service-col"
+              :key="currentService.key + '-features'"
+              :initial="{ opacity: 0, x: -18 }"
+              :animate="{ opacity: 1, x: 0 }"
+              :transition="{ duration: 0.45, ease: 'easeOut' }"
+            >
               <h3>{{ currentService.featuresTitle }}</h3>
               <ul>
                 <li v-for="(item, i) in currentService.features" :key="i">
                   {{ item }}
                 </li>
               </ul>
-            </div>
+            </Motion>
 
-            <div class="service-col">
+            <Motion
+              tag="div"
+              class="service-col"
+              :key="currentService.key + '-benefits'"
+              :initial="{ opacity: 0, x: 18 }"
+              :animate="{ opacity: 1, x: 0 }"
+              :transition="{ duration: 0.45, delay: 0.04, ease: 'easeOut' }"
+            >
               <h3>{{ currentService.benefitsTitle }}</h3>
               <ul>
                 <li v-for="(item, i) in currentService.benefits" :key="i">
                   {{ item }}
                 </li>
               </ul>
-            </div>
+            </Motion>
           </div>
 
-          <!-- ====== PROCESSUS ====== -->
-         <section class="service-process">
-  <h3 class="process-title">{{ currentService.processTitle }}</h3>
+          <section class="service-process">
+            <Motion
+              tag="h3"
+              class="process-title"
+              :key="currentService.key + '-process-title'"
+              :initial="{ opacity: 0, y: 14 }"
+              :animate="{ opacity: 1, y: 0 }"
+              :transition="{ duration: 0.45, ease: 'easeOut' }"
+            >
+              {{ currentService.processTitle }}
+            </Motion>
 
-  <div class="process-timeline">
-    <article
-      v-for="(step, idx) in currentService.steps"
-      :key="step.num"
-      class="process-item"
-    >
-      <!-- numéro + connecteur -->
-      <div class="process-top">
-        <div class="process-badge">
-          {{ step.num }}
-        </div>
+            <div class="process-timeline">
+              <Motion
+                v-for="(step, idx) in currentService.steps"
+                :key="currentService.key + '-' + step.num"
+                tag="article"
+                class="process-item"
+                :initial="{ opacity: 0, y: 18, scale: 0.985 }"
+                :animate="{ opacity: 1, y: 0, scale: 1 }"
+                :transition="{ duration: 0.4, delay: idx * 0.05, ease: 'easeOut' }"
+              >
+                <div class="process-top">
+                  <div class="process-badge">
+                    {{ step.num }}
+                  </div>
 
-        <!-- connecteur vers la carte suivante -->
-        <div
-          v-if="idx !== currentService.steps.length - 1"
-          class="process-connector"
-          aria-hidden="true"
-        ></div>
-      </div>
+                  <div
+                    v-if="idx !== currentService.steps.length - 1"
+                    class="process-connector"
+                    aria-hidden="true"
+                  ></div>
+                </div>
 
-      <!-- carte -->
-      <div class="process-card">
-        <h4 class="process-step-title">{{ step.title }}</h4>
-        <p class="process-step-desc">{{ step.desc }}</p>
-      </div>
-    </article>
-  </div>
-</section>
+                <div class="process-card">
+                  <h4 class="process-step-title">{{ step.title }}</h4>
+                  <p class="process-step-desc" v-if="step.desc">{{ step.desc }}</p>
+                </div>
+              </Motion>
+            </div>
+          </section>
 
-
-          <!-- ====== CTA FINAL ====== -->
-          <footer class="service-cta">
-            <h3>Prêt à démarrer votre projet&nbsp;?</h3>
+          <Motion
+            tag="footer"
+            class="service-cta"
+            :key="currentService.key + '-cta'"
+            :initial="{ opacity: 0, y: 20 }"
+            :animate="{ opacity: 1, y: 0 }"
+            :transition="{ duration: 0.45, delay: 0.08, ease: 'easeOut' }"
+          >
+            <h3>Prêt à travailler avec moi ?</h3>
             <p class="service-summary">
-              Discutons de vos besoins et je vous proposerai une solution
-              adaptée à votre budget et vos objectifs.
+              si mon profil vous intéresse et vous souhaitez travailler avec moi.
             </p>
 
             <button class="cta-button">
               <i class="fa-solid fa-paper-plane" />
               {{ currentService.cta }}
             </button>
-          </footer>
-        </section>
+          </Motion>
+        </Motion>
       </div>
     </section>
   </main>
 </template>
 
 <style scoped>
-/* ================== GLOBAL ================== */
-
-/* ================== GLOBAL ================== */
-
 .services-page {
   background: #050816;
   color: #f9fafb;
 }
-
-/* ================== HERO ================== */
 
 .services-hero {
   position: relative;
@@ -444,6 +426,7 @@ const selectService = (key) => {
   font-size: 2.4rem;
   font-weight: 900;
   margin-bottom: 0.7rem;
+  line-height: 1.2;
 }
 
 .services-hero-subtitle {
@@ -451,8 +434,6 @@ const selectService = (key) => {
   line-height: 1.7;
   color: #e5e7eb;
 }
-
-/* ================== CONTAINER ================== */
 
 .services-section {
   padding: 3.5rem 0 4.5rem;
@@ -463,8 +444,6 @@ const selectService = (key) => {
   margin: 0 auto;
   padding: 0 1.5rem;
 }
-
-/* ================== TABS ================== */
 
 .services-tabs {
   display: grid;
@@ -479,18 +458,20 @@ const selectService = (key) => {
   padding: 0;
   cursor: pointer;
   text-align: left;
+  width: 100%;
 }
 
 .service-tab-inner {
   border-radius: 0.75rem;
-  padding: 1.4rem 1.3rem 1.2rem;
+  padding: 1.1rem 1.15rem 1rem;
   color: #f9fafb;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.7rem;
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
   opacity: 0.85;
   transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+  min-height: 150px;
 }
 
 .service-tab.active .service-tab-inner,
@@ -498,6 +479,12 @@ const selectService = (key) => {
   transform: translateY(-5px);
   box-shadow: 0 22px 50px rgba(0, 0, 0, 0.55);
   opacity: 1;
+}
+
+.tab-head {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
 }
 
 .tab-icon-wrapper {
@@ -508,24 +495,26 @@ const selectService = (key) => {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .tab-icon-wrapper i {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
 }
 
 .tab-title {
   font-size: 1.05rem;
   font-weight: 800;
+  line-height: 1.35;
+  margin: 0;
 }
 
 .tab-short {
   font-size: 0.85rem;
   line-height: 1.5;
   color: #e5e7eb;
+  margin: 0;
 }
-
-/* ================== DETAILS ================== */
 
 .service-details {
   border-radius: 1.1rem;
@@ -533,8 +522,6 @@ const selectService = (key) => {
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
 }
-
-/* ===== HEADER COLORÉ ===== */
 
 .service-header {
   --accent: #06b6d4;
@@ -575,8 +562,8 @@ const selectService = (key) => {
   font-size: 2.4rem;
   font-weight: 900;
   margin-bottom: 0.8rem;
-    text-align: start;
-    justify-content: start;
+  text-align: start;
+  line-height: 1.15;
 }
 
 .service-intro {
@@ -585,7 +572,6 @@ const selectService = (key) => {
   max-width: 920px;
   line-height: 1.7;
   text-align: start;
-  justify-content: start !important;
 }
 
 .service-badges {
@@ -607,7 +593,7 @@ const selectService = (key) => {
 }
 
 .badge-outline {
-   background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.45);
   color: white;
 }
@@ -618,8 +604,6 @@ const selectService = (key) => {
   color: white;
   font-weight: 800;
 }
-
-/* ===== BODY SOMBRE ===== */
 
 .service-columns {
   background: #0b1222;
@@ -661,8 +645,6 @@ const selectService = (key) => {
   color: #ffb020;
 }
 
-/* ================== PROCESS (TIMELINE STYLE) ================== */
-
 .service-process {
   background: #0b1222;
   padding: 0.2rem 2.4rem 2.6rem;
@@ -675,19 +657,16 @@ const selectService = (key) => {
   margin: 1.2rem 0 1.2rem;
 }
 
-/* timeline horizontale */
 .process-timeline {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 1rem;
 }
 
-/* item = badge+connector + card */
 .process-item {
   position: relative;
 }
 
-/* top row avec le badge et le connector */
 .process-top {
   display: flex;
   align-items: center;
@@ -695,7 +674,6 @@ const selectService = (key) => {
   margin-bottom: 0.65rem;
 }
 
-/* rond numéro */
 .process-badge {
   width: 34px;
   height: 34px;
@@ -703,23 +681,18 @@ const selectService = (key) => {
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-weight: 900;
   font-size: 0.95rem;
   color: #f9fafb;
-
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
 }
 
-/* petit trait de liaison (comme ta référence) */
 .process-connector {
   height: 2px;
   flex: 1;
   border-radius: 999px;
-
-  /* une ligne discrète */
   background: linear-gradient(
     to right,
     rgba(255, 255, 255, 0.22),
@@ -727,14 +700,12 @@ const selectService = (key) => {
   );
 }
 
-/* carte process sombre */
 .process-card {
   background: #3A3F45;
   border-radius: 0.85rem;
   border: 1px solid rgba(255, 255, 255, 0.10);
   padding: 1.05rem 1rem 1.15rem;
-  max-height: 120px;
-
+  min-height: 84px;
   transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
 }
 
@@ -748,6 +719,7 @@ const selectService = (key) => {
   font-size: 0.95rem;
   font-weight: 900;
   margin-bottom: 0.35rem;
+  line-height: 1.35;
 }
 
 .process-step-desc {
@@ -755,8 +727,6 @@ const selectService = (key) => {
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.75);
 }
-
-/* ================== CTA ================== */
 
 .service-cta {
   background: #3A3F45;
@@ -772,7 +742,8 @@ const selectService = (key) => {
 }
 
 .service-cta p {
-  font-size: 1.4rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 1.2rem;
 }
@@ -787,9 +758,10 @@ const selectService = (key) => {
   color: #020617;
   cursor: pointer;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
 }
-
-/* ================== RESPONSIVE ================== */
 
 @media (max-width: 1024px) {
   .services-tabs {
@@ -807,19 +779,27 @@ const selectService = (key) => {
   }
 
   .services-hero-title {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
-    .services-hero-subtitle {
-    font-size: 1.2rem;
+
+  .services-hero-subtitle {
+    font-size: 1rem;
   }
 
   .services-tabs {
     grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .service-tab-inner {
+    min-height: 132px;
+    padding: 1rem 1rem 0.95rem;
   }
 
   .service-columns {
     grid-template-columns: 1fr;
     padding: 2rem 1.5rem;
+    gap: 2rem;
   }
 
   .service-header {
@@ -836,17 +816,225 @@ const selectService = (key) => {
 }
 
 @media (max-width: 600px) {
+  .services-hero {
+    height: 320px;
+  }
+
+  .services-hero-inner {
+    padding: 0 0.9rem;
+    max-width: 100%;
+  }
+
+  .services-hero-title {
+    font-size: 1.45rem;
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+  }
+
+  .services-hero-subtitle {
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+
+  .services-section {
+    padding: 2.6rem 0 3.2rem;
+  }
+
+  .services-container {
+    padding: 0 0.75rem;
+  }
+
+  .services-tabs {
+    gap: 0.8rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .service-tab {
+    width: 100%;
+  }
+
+  .service-tab-inner {
+    width: 90%;
+    min-height: 118px;
+    padding: 0.9rem 0.95rem 0.9rem;
+    gap: 0.55rem;
+    border-radius: 0.95rem;
+  }
+
+  .tab-head {
+    gap: 0.7rem;
+    align-items: center;
+  }
+
+  .tab-icon-wrapper {
+    width: 2.15rem;
+    height: 2.15rem;
+  }
+
+  .tab-icon-wrapper i {
+    font-size: 0.95rem;
+  }
+
+  .tab-title {
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+
+  .tab-short {
+    font-size: 0.83rem;
+    line-height: 1.45;
+    max-width: 92%;
+  }
+
+  .service-details {
+    border-radius: 0.95rem;
+  }
+
+  .service-header {
+    padding: 1.45rem 1rem 1.25rem;
+  }
+
+  .service-title {
+    font-size: 1.45rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .service-intro {
+    font-size: 0.94rem;
+    line-height: 1.7;
+  }
+
+  .service-badges {
+    margin-top: 1rem;
+    gap: 0.6rem;
+  }
+
+  .badge {
+    font-size: 0.82rem;
+    padding: 0.52rem 0.95rem;
+  }
+
+  .service-columns {
+    padding: 1.35rem 1rem 1.1rem;
+    gap: 1.35rem;
+  }
+
+  .service-col h3 {
+    font-size: 1.02rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-col li {
+    font-size: 0.92rem;
+    line-height: 1.68;
+    padding-left: 1rem;
+  }
+
+  .service-process {
+    padding: 0.1rem 1rem 1.4rem;
+  }
+
+  .process-title {
+    font-size: 1.02rem;
+    margin: 0.95rem 0 0.9rem;
+  }
+
   .process-timeline {
     grid-template-columns: 1fr;
+    gap: 0.85rem;
   }
 
   .process-top {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .process-badge {
+    width: 30px;
+    height: 30px;
+    font-size: 0.86rem;
   }
 
   .process-connector {
-    display: none; /* sur mobile, on enlève le trait */
+    display: none;
+  }
+
+  .process-card {
+    min-height: auto;
+    padding: 0.85rem 0.85rem 0.9rem;
+  }
+
+  .process-step-title {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+  }
+
+  .process-step-desc {
+    font-size: 0.84rem;
+    line-height: 1.5;
+  }
+
+  .service-cta {
+    padding: 1.4rem 1rem 1.5rem;
+  }
+
+  .service-cta h3 {
+    font-size: 1.2rem;
+  }
+
+  .service-cta p {
+    font-size: 0.93rem;
+    line-height: 1.65;
+  }
+
+  .cta-button {
+    width: 100%;
+    justify-content: center;
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
   }
 }
 
+@media (max-width: 420px) {
+  .services-container {
+    padding: 0 0.65rem;
+  }
+
+  .service-tab-inner {
+    min-height: 112px;
+    padding: 0.85rem 0.9rem 0.85rem;
+  }
+
+  .tab-title {
+    font-size: 0.9rem;
+  }
+
+  .tab-short {
+    font-size: 0.79rem;
+    max-width: 90%;
+  }
+
+  .service-header {
+    padding: 1.25rem 0.9rem 1.1rem;
+  }
+
+  .service-title {
+    font-size: 1.32rem;
+  }
+
+  .service-intro {
+    font-size: 0.9rem;
+  }
+
+  .service-columns {
+    padding: 1.2rem 0.9rem 1rem;
+  }
+
+  .service-process {
+    padding: 0.1rem 0.9rem 1.25rem;
+  }
+
+  .service-cta {
+    padding: 1.25rem 0.9rem 1.35rem;
+  }
+}
 </style>
