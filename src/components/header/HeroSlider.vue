@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const carouselRef = ref(null)
 const activeIndex = ref(0)
@@ -9,19 +12,21 @@ const slides = [
   {
     id: 1,
     title: "Bonjour, je suis Alex Stephane KUETCHE",
-    subtitle: "Développeur Web Full-Stack expérimenté",
+    subtitle: "Développeur Web Full-Stack",
     description:
-      "Je conçois et développe des applications modernes, performantes et sécurisées pour les entreprises et les particuliers.",
+      "Je conçois et développe des applications modernes, performantes et sécurisées ainsi que les hebergements.",
     ctaLabel: "Voir mes projets",
+    ctaRoute: "/Projets",
     image: new URL('@/assets/infos1.jpg', import.meta.url).href
   },
   {
     id: 2,
-    title: "Création d'applications modernes et évolutives",
+    title: "Création d'applications web et mobiles modernes et évolutives",
     subtitle: "Front-end & Back-end sur mesure",
     description:
       "De l’idée au déploiement, je t’accompagne sur toutes les étapes de ton projet avec des technologies modernes.",
-    ctaLabel: "Découvrir mes services",
+    ctaLabel: "Voir mes compétences",
+    ctaRoute: "/services",
     image: new URL('@/assets/bureau.jpeg', import.meta.url).href
   },
   {
@@ -31,6 +36,7 @@ const slides = [
     description:
       "Chaque projet est conçu pour être performant, sécurisé et agréable à utiliser, sur desktop comme sur mobile.",
     ctaLabel: "Me contacter",
+    ctaRoute: "/contact",
     image: new URL('@/assets/infos3.jpg', import.meta.url).href
   }
 ]
@@ -47,6 +53,12 @@ const goToSlide = (index) => {
     carouselRef.value.setActiveItem(index)
     activeIndex.value = index
     textAnimKey.value++
+  }
+}
+
+const handleCtaClick = (slide) => {
+  if (slide?.ctaRoute) {
+    router.push(slide.ctaRoute)
   }
 }
 </script>
@@ -131,11 +143,11 @@ const goToSlide = (index) => {
                   size="large"
                   round
                   class="hero-btn"
+                  @click="handleCtaClick(slide)"
                 >
                   {{ slide.ctaLabel }}
                 </el-button>
               </div>
-
             </div>
           </div>
         </div>
