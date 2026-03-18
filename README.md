@@ -4,6 +4,13 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
 Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
 
+### Un framework est une structure logicielle qui impose une manière d’organiser et d’exécuter ton application.
+Il te fournit généralement :
+- une architecture
+- des fonctions prêtes à l’emploi
+- des outils intégrés
+- des bonnes pratiques
+
 #### structure de mon repertoire
 src/
  ├─ assets/

@@ -22,7 +22,7 @@ const slides = [
     description:
       "De l’idée au déploiement, je t’accompagne sur toutes les étapes de ton projet avec des technologies modernes.",
     ctaLabel: "Découvrir mes services",
-    image: new URL('@/assets/infos2.jpg', import.meta.url).href
+    image: new URL('@/assets/bureau.jpeg', import.meta.url).href
   },
   {
     id: 3,
