@@ -13,7 +13,7 @@
       </Motion>
 
       <Motion
-        tag="p"
+        tag="h3"
         class="subtitle"
         :initial="{ opacity: 0, y: 24 }"
         :whileInView="{ opacity: 1, y: 0 }"
@@ -35,9 +35,11 @@
           :transition="{ duration: 0.75, delay: index * 0.08, ease: 'easeOut' }"
           :viewport="{ once: true, amount: 0.2 }"
         >
-          <div class="icon" v-html="item.icon"></div>
+          <div class="card-header">
+            <div class="icon" v-html="item.icon"></div>
+            <h3 class="card-title">{{ item.title }}</h3>
+          </div>
 
-          <h3 class="card-title">{{ item.title }}</h3>
           <p class="card-desc">{{ item.desc }}</p>
         </Motion>
       </div>
@@ -50,8 +52,8 @@ import { Motion } from "motion-v"
 
 const services = [
   {
-    title: "E-commerce sur\nmesure",
-    desc: "Développement de boutiques en ligne personnalisées, optimisées et intégrant des solutions de paiement",
+    title: "Site E-commerce sur mesure",
+    desc: "Création de solutions e-commerce sur mesure avec gestion des produits, paiements en ligne et optimisation des performances",
     icon: `
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2ZM6.2 6l.8 4h10.7c.8 0 1.5-.5 1.8-1.2l1.6-3.6A1 1 0 0 0 20.2 4H6.3l-.2-1H3V1h2.6c.5 0 .9.3 1 .8L7 4h13.2v2H6.2Zm1.2 6h10.9l-.7 1.5a2 2 0 0 1-1.8 1.1H8.2a2 2 0 0 1-2-1.6L4.3 4.5H2V3h3.2l2.0 9Z"/>
@@ -77,8 +79,8 @@ const services = [
     `,
   },
   {
-    title: "Optimisation & SEO",
-    desc: "Optimisation des performances, mises à jour régulières et amélioration du référencement de votre plateforme",
+    title: "Application Mobile cross-platform",
+    desc: "Conception d’applications mobiles cross-platform sur mesure, déployables sur iOS et Android à partir d’une base de code unique",
     icon: `
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M3 17h3v4H3v-4Zm5-6h3v10H8V11Zm5 3h3v7h-3v-7Zm5-10h3v17h-3V4ZM4 13l4-4 4 4 7-7 1.4 1.4-8.4 8.4-4-4-2.6 2.6L4 13Z"/>
@@ -89,10 +91,8 @@ const services = [
 </script>
 
 <style scoped>
-/* section */
 .services {
   padding: 50px 0;
-  padding-top: 50px;
   background: #050816;
 }
 
@@ -111,14 +111,13 @@ const services = [
 }
 
 .subtitle {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto 50px;
   opacity: 0.85;
   line-height: 1.6;
   color: #e5e7eb;
 }
 
-/* grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -126,17 +125,17 @@ const services = [
   align-items: stretch;
 }
 
-/* card */
 .card {
   background: rgba(12, 16, 26, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 14px;
-  padding: 34px 26px 28px;
-  min-height: 250px;
+  padding: 22px 20px;
+  min-height: 190px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
   transition:
     transform 0.25s ease,
     background 0.25s ease,
@@ -152,18 +151,26 @@ const services = [
   transform: translateY(-6px) scale(1.02);
 }
 
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  width: 100%;
+}
+
 .icon {
-  width: 76px;
-  height: 76px;
-  margin-bottom: 18px;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .icon :deep(svg) {
-  width: 72px;
-  height: 72px;
+  width: 28px;
+  height: 28px;
   fill: rgba(255, 255, 255, 0.9);
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
@@ -174,9 +181,9 @@ const services = [
 }
 
 .card-title {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
-  margin: 6px 0 12px;
+  margin: 0;
   white-space: pre-line;
   color: #f9fafb;
   line-height: 1.3;
@@ -186,11 +193,11 @@ const services = [
   opacity: 0.85;
   font-size: 15px;
   line-height: 1.6;
-  max-width: 260px;
+  max-width: 100%;
+  margin: 0;
   color: #e5e7eb;
 }
 
-/* responsive */
 @media (max-width: 1100px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
@@ -223,28 +230,31 @@ const services = [
 
   .card {
     min-height: auto;
-    padding: 26px 18px 22px;
+    padding: 20px 16px;
     border-radius: 12px;
   }
 
+  .card-header {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
   .icon {
-    width: 68px;
-    height: 68px;
-    margin-bottom: 14px;
+    width: 24px;
+    height: 24px;
   }
 
   .icon :deep(svg) {
-    width: 62px;
-    height: 62px;
+    width: 24px;
+    height: 24px;
   }
 
   .card-title {
-    font-size: 20px;
-    margin: 4px 0 10px;
+    font-size: 18px;
+    margin: 0;
   }
 
   .card-desc {
-    max-width: 100%;
     font-size: 0.94rem;
     line-height: 1.7;
   }
