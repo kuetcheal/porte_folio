@@ -21,7 +21,7 @@ const address = '271 Rue de la Thériaque, 34090 Montpellier'
 
           <div class="socials">
 
-            <a href="#" class="social-icon" aria-label="LinkedIn">in</a>
+            <a href="https://www.linkedin.com/in/alex-stephane-kuetche-33a248302/?skipRedirect=true" class="social-icon" aria-label="LinkedIn">in</a>
             <a href="#" class="social-icon" aria-label="GitHub">GH</a>
             <a href="#" class="social-icon" aria-label="X">X</a>
           </div>
