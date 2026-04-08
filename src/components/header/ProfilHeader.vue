@@ -236,14 +236,14 @@ function goToParcours() {
   font-weight: 700;
   padding: 0.95rem 1.9rem;
   border-radius: 999px;
-  box-shadow: 0 12px 28px rgba(242, 109, 109, 0.28);
+ 
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .profile-btn:hover {
   background: #ef5d5d;
   transform: translateY(-2px);
-  box-shadow: 0 16px 32px rgba(242, 109, 109, 0.34);
+ 
 }
 
 /* ===== IMAGE ===== */

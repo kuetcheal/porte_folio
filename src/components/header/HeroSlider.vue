@@ -1,12 +1,14 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { Motion } from 'motion-v'
 
 const router = useRouter()
 
 const carouselRef = ref(null)
 const activeIndex = ref(0)
-const intervalMs = 4000
+const intervalMs = ref(6000)
+const textAnimKey = ref(0)
 
 const slides = [
   {
@@ -40,8 +42,6 @@ const slides = [
     image: new URL('@/assets/infos3.jpg', import.meta.url).href
   }
 ]
-
-const textAnimKey = ref(0)
 
 const handleChange = (newIndex) => {
   activeIndex.value = newIndex
@@ -86,57 +86,46 @@ const handleCtaClick = (slide) => {
           <div class="hero-overlay"></div>
 
           <div class="hero-inner">
-            <div class="hero-content" :key="`${slide.id}-${textAnimKey}`">
-              <h1
-                v-motion
+            <div
+              class="hero-content"
+              :key="`${slide.id}-${textAnimKey}`"
+            >
+              <Motion
+                tag="h1"
                 class="hero-title"
-                :initial="{ opacity: 0, y: 40, filter: 'blur(12px)' }"
-                :enter="{
-                  opacity: 1,
-                  y: 0,
-                  filter: 'blur(0px)',
-                  transition: { duration: 700, delay: 220 }
-                }"
+                :initial="{ opacity: 0, y: 28 }"
+                :animate="{ opacity: 1, y: 0 }"
+                :transition="{ duration: 0.55, delay: 0.1, ease: 'easeOut' }"
               >
                 {{ slide.title }}
-              </h1>
+              </Motion>
 
-              <p
-                v-motion
+              <Motion
+                tag="p"
                 class="hero-subtitle"
-                :initial="{ opacity: 0, x: -30 }"
-                :enter="{
-                  opacity: 1,
-                  x: 0,
-                  transition: { duration: 550, delay: 350 }
-                }"
+                :initial="{ opacity: 0, y: 28 }"
+                :animate="{ opacity: 1, y: 0 }"
+                :transition="{ duration: 0.55, delay: 0.35, ease: 'easeOut' }"
               >
                 {{ slide.subtitle }}
-              </p>
+              </Motion>
 
-              <p
-                v-motion
+              <Motion
+                tag="p"
                 class="hero-description"
-                :initial="{ opacity: 0, y: 25 }"
-                :enter="{
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 600, delay: 480 }
-                }"
+                :initial="{ opacity: 0, y: 28 }"
+                :animate="{ opacity: 1, y: 0 }"
+                :transition="{ duration: 0.55, delay: 0.6, ease: 'easeOut' }"
               >
                 {{ slide.description }}
-              </p>
+              </Motion>
 
-              <div
-                v-motion
+              <Motion
+                tag="div"
                 class="hero-actions"
-                :initial="{ opacity: 0, y: 20, scale: 0.96 }"
-                :enter="{
-                  opacity: 1,
-                  y: 0,
-                  scale: 1,
-                  transition: { duration: 500, delay: 620 }
-                }"
+                :initial="{ opacity: 0, y: 28 }"
+                :animate="{ opacity: 1, y: 0 }"
+                :transition="{ duration: 0.55, delay: 0.85, ease: 'easeOut' }"
               >
                 <el-button
                   type="danger"
@@ -147,7 +136,7 @@ const handleCtaClick = (slide) => {
                 >
                   {{ slide.ctaLabel }}
                 </el-button>
-              </div>
+              </Motion>
             </div>
           </div>
         </div>
@@ -209,10 +198,10 @@ const handleCtaClick = (slide) => {
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(0,0,0,0.9) 0%,
-    rgba(0,0,0,0.7) 35%,
-    rgba(0,0,0,0.4) 60%,
-    rgba(0,0,0,0.7) 100%
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.7) 35%,
+    rgba(0, 0, 0, 0.4) 60%,
+    rgba(0, 0, 0, 0.7) 100%
   );
   z-index: 1;
 }
@@ -231,14 +220,6 @@ const handleCtaClick = (slide) => {
 .hero-content {
   max-width: 550px;
   color: #fff;
-}
-
-.hero-eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-size: 0.78rem;
-  margin-bottom: 0.9rem;
-  color: #f97373;
 }
 
 .hero-title {
@@ -269,13 +250,13 @@ const handleCtaClick = (slide) => {
 .hero-btn {
   min-width: 170px;
   font-weight: 700;
-  box-shadow: 0 10px 30px rgba(255,75,75,0.25);
-  transition: transform .25s ease, box-shadow .25s ease;
+ 
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .hero-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(255,75,75,0.35);
+ 
 }
 
 .hero-pagination-wrapper {
@@ -302,7 +283,7 @@ const handleCtaClick = (slide) => {
   border: none;
   cursor: pointer;
   overflow: hidden;
-  background: rgba(255,255,255,0.25);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .hero-bar-fill {
@@ -313,7 +294,7 @@ const handleCtaClick = (slide) => {
 }
 
 .hero-bar.active .hero-bar-fill {
-  animation: barProgress var(--duration,4000ms) linear forwards;
+  animation: barProgress var(--duration, 4000ms) linear forwards;
 }
 
 .hero-bar.completed .hero-bar-fill {
@@ -321,8 +302,8 @@ const handleCtaClick = (slide) => {
 }
 
 @keyframes barProgress {
-  from { width:0 }
-  to { width:100% }
+  from { width: 0 }
+  to { width: 100% }
 }
 
 .scroll-indicator {
@@ -334,7 +315,7 @@ const handleCtaClick = (slide) => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .35rem;
+  gap: 0.35rem;
   color: #f9fafb;
 }
 
@@ -354,20 +335,20 @@ const handleCtaClick = (slide) => {
 }
 
 .scroll-text {
-  font-size: .75rem;
-  letter-spacing: .16em;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 @keyframes scrollArrow {
-  0% {opacity:0; transform:translateY(-4px)}
-  40% {opacity:1; transform:translateY(0)}
-  100% {opacity:0; transform:translateY(6px)}
+  0% { opacity: 0; transform: translateY(-4px) }
+  40% { opacity: 1; transform: translateY(0) }
+  100% { opacity: 0; transform: translateY(6px) }
 }
 
-@media (max-width:900px){
-  .hero-title{font-size:2rem}
-  .hero-content{max-width:100%}
-  .hero-description{max-width:100%}
+@media (max-width: 900px) {
+  .hero-title { font-size: 2rem; }
+  .hero-content { max-width: 100%; }
+  .hero-description { max-width: 100%; }
 }
 </style>
