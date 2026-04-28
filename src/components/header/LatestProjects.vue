@@ -32,18 +32,25 @@ const projects = [
   {
     id: 3,
     title:
-      "maestroRGPD : refonte d’une application SaaS de conformité RGPD",
+      "EasyTravel : Application de covoiturage et reservation de Billet Bus",
     technologies:
-      "React, TypeScript, TailwindCSS, Java, Spring Boot, REST API, MySQL, Redis, Sequelize, Jest, Git, Docker, Nginx, JWT",
+      "Javascript , PHP 8 , TailwindCSS , AJAX ,  MySQL , JQuery, Git, FileZilla , Microsoft Azure , FTPS , Websocket",
     features: [
       "Tableau de bord administrateur",
       "Interfaces responsives",
       "Timeline interactive des actions",
-      "Lazy loading des composants lourds"
+      "Intégration de nombreux API tierces ( Paiement, Google Maps, Gmail, Whatsapp )"
     ],
-    image: new URL('@/assets/infos3.jpg', import.meta.url).href
+    image: new URL('@/assets/easytravel-agency.png', import.meta.url).href,
+    link: "https://www.easy-travel.app/Accueil.php"
   }
 ]
+
+const openProject = (project) => {
+  if (!project.link) return
+
+  window.open(project.link, "_blank", "noopener,noreferrer")
+}
 </script>
 
 <template>
@@ -101,7 +108,13 @@ const projects = [
               </ul>
 
               <div class="project-actions">
-                <el-button type="danger" size="large" round>
+                <el-button
+                  type="danger"
+                  size="large"
+                  round
+                  :disabled="!project.link"
+                  @click="openProject(project)"
+                >
                   <i class="fa-solid fa-up-right-from-square btn-icon" />
                   Consulter
                 </el-button>
@@ -120,7 +133,7 @@ const projects = [
         :viewport="{ once: true, amount: 0.4 }"
       >
         <el-button type="danger" size="large" round>
-          Voir plus de projets
+          Voir tous de projets
         </el-button>
       </Motion>
     </div>

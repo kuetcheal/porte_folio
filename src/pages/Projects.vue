@@ -3,9 +3,14 @@
     <section class="projects-hero" :style="{ backgroundImage: `url(${bgHero})` }">
       <div class="projects-hero-overlay"></div>
 
-      <Motion tag="div" class="projects-hero-inner" :initial="{ opacity: 0, y: 28, scale: 0.985 }"
-        :whileInView="{ opacity: 1, y: 0, scale: 1 }" :transition="{ duration: 0.9, ease: 'easeOut' }"
-        :viewport="{ once: true, amount: 0.35 }">
+      <Motion
+        tag="div"
+        class="projects-hero-inner"
+        :initial="{ opacity: 0, y: 28, scale: 0.985 }"
+        :whileInView="{ opacity: 1, y: 0, scale: 1 }"
+        :transition="{ duration: 0.9, ease: 'easeOut' }"
+        :viewport="{ once: true, amount: 0.35 }"
+      >
         <h1 class="projects-hero-title">
           Développement Web Moderne
         </h1>
@@ -18,16 +23,20 @@
     </section>
 
     <section class="projects-section">
-
       <div class="projects-container">
         <div class="titre-projet">
           <h2>Projets personnel et professionnels réalisés</h2>
         </div>
-        <Motion v-for="(project, index) in projects" :key="project.id" tag="div"
-          :initial="{ opacity: 0, y: 34, scale: 0.985 }" :whileInView="{ opacity: 1, y: 0, scale: 1 }"
-          :transition="{ duration: 0.75, delay: index * 0.08, ease: 'easeOut' }"
-          :viewport="{ once: true, amount: 0.2 }">
 
+        <Motion
+          v-for="(project, index) in projects"
+          :key="project.id"
+          tag="div"
+          :initial="{ opacity: 0, y: 34, scale: 0.985 }"
+          :whileInView="{ opacity: 1, y: 0, scale: 1 }"
+          :transition="{ duration: 0.75, delay: index * 0.08, ease: 'easeOut' }"
+          :viewport="{ once: true, amount: 0.2 }"
+        >
           <el-card shadow="never" class="project-card">
             <div class="project-row">
               <!-- COLONNE IMAGE -->
@@ -57,14 +66,24 @@
                 </ul>
 
                 <div class="project-actions">
-                  <a v-if="project.url" :href="project.url" target="_blank" rel="noopener noreferrer"
-                    class="project-link">
-                    <el-button type="danger" size="large" round>
-                      <i class="fa-solid fa-up-right-from-square btn-icon" />
-                      Consulter
-                    </el-button>
-                  </a>
-                  <el-button v-else type="info" size="large" round disabled>
+                  <el-button
+                    v-if="project.link"
+                    type="danger"
+                    size="large"
+                    round
+                    @click="openProject(project)"
+                  >
+                    <i class="fa-solid fa-up-right-from-square btn-icon" />
+                    Consulter
+                  </el-button>
+
+                  <el-button
+                    v-else
+                    type="info"
+                    size="large"
+                    round
+                    disabled
+                  >
                     Lien indisponible
                   </el-button>
                 </div>
@@ -79,7 +98,6 @@
 
 <script setup>
 import { Motion } from "motion-v"
-import { useRouter } from "vue-router";
 
 const bgHero = new URL("@/assets/infos1.jpg", import.meta.url).href
 
@@ -88,36 +106,36 @@ const projects = [
     id: 1,
     title: "EasyTravel : Application de reservation de billet de voyage",
     technologies:
-      "Next.js, TypeScript, TailwindCSS, PostgreSQL, Prisma, Jest, Git, GitLab, AWS, Nginx, HTTPS/SSL, JWT",
+      "Javascript, PHP 8, TailwindCSS, AJAX, MySQL, JQuery, Git, FileZilla, Microsoft Azure, FTPS, Websocket",
     features: [
-      "Notifications en temps réel",
-      "Prise de rendez-vous en ligne",
-      "Tableau de bord pour admins et utilisateurs",
-      "Gestion complète des logements et réservations"
+      "Tableau de bord administrateur",
+      "Interfaces responsives",
+      "Timeline interactive des actions",
+      "Intégration de nombreuses API tierces : paiement, Google Maps, etc."
     ],
-    image: new URL('@/assets/infos1.jpg', import.meta.url).href,
-    url: "https://monsite-easytravel.com"
+    image: new URL('@/assets/easytravel-agency.png', import.meta.url).href,
+    link: "https://www.easy-travel.app/Accueil.php"
   },
   {
     id: 2,
     title: "PayTonKaya : site E-commerce permettant la vente de café",
     technologies:
-      "ReactJS, Vite, TailwindCSS, MySQL, Sprint-Boot, J-Unit 5, Git, Github Actions, CI/CD, Kubernetes, Promotheus, JWT, Granafa, Sonarqube",
+      "ReactJS, Vite, TailwindCSS, MySQL, Spring Boot, JUnit 5, Git, Github Actions, CI/CD, Kubernetes, Prometheus, JWT, Grafana, Sonarqube",
     features: [
       "Architecture Micro-services",
       "Achat du café en ligne",
       "Prise de rendez-vous en ligne",
-      "Tableau de bord pour admins et utilisateurs",
+      "Tableau de bord pour admins et utilisateurs"
     ],
     image: new URL('@/assets/infos1.jpg', import.meta.url).href,
-    url: "https://monsite-easytravel.com"
+    link: "https://monsite-easytravel.com"
   },
   {
     id: 3,
     title:
       "EventGO : application Mobile cross platform de souscription aux événements",
     technologies:
-      "React, JavaScript, TailwindCSS, Node.js, Flutter, cloudinary, MySQL, OVH, Render, Github, Docker, n8n",
+      "React, JavaScript, TailwindCSS, Node.js, Flutter, Cloudinary, MySQL, OVH, Render, Github, Docker, n8n",
     features: [
       "Gestion des rôles (RBAC) et authentification SSO",
       "Notifications en temps réel",
@@ -125,12 +143,12 @@ const projects = [
       "Suivi des activités et reporting avancé"
     ],
     image: new URL('@/assets/infos2.jpg', import.meta.url).href,
-    url: "https://monsite-easytravel.com"
+    link: "https://monsite-easytravel.com"
   },
   {
     id: 4,
     title:
-      "Mobiliis : application d'accompagnement dans les procedures de voyages",
+      "Mobiliis : application d'accompagnement dans les procédures de voyages",
     technologies:
       "React, TypeScript, TailwindCSS, Java, Spring Boot, REST API, MySQL, Redis, Sequelize, Jest, Git, Docker, Nginx, JWT",
     features: [
@@ -140,14 +158,14 @@ const projects = [
       "Lazy loading des composants lourds"
     ],
     image: new URL('@/assets/infos3.jpg', import.meta.url).href,
-    url: "https://mobiliis.vercel.app"
+    link: "https://mobiliis.vercel.app"
   },
   {
     id: 5,
     title:
-      "conception de 14 sites écoles pour le groupe universitaire C&D",
+      "Conception de 14 sites écoles pour le groupe universitaire C&D",
     technologies:
-      "React, TypeScript, TailwindCSS, NuxtJS, VueJS, REST API, POSTGRESQL, Redis, Kubernetes, Jest, Git, Docker, Nginx, JWT",
+      "React, TypeScript, TailwindCSS, NuxtJS, VueJS, REST API, PostgreSQL, Redis, Kubernetes, Jest, Git, Docker, Nginx, JWT",
     features: [
       "Tableau de bord administrateur",
       "Interfaces responsives",
@@ -155,13 +173,13 @@ const projects = [
       "Lazy loading des composants lourds"
     ],
     image: new URL('@/assets/cd.png', import.meta.url).href,
-    url: "https://monsite-easytravel.com"
+    link: "https://www.epsi.fr/"
   },
   {
     id: 6,
-    title: "Mon portFolio : site vitrine décrivant mon parcours",
+    title: "Mon portfolio : site vitrine décrivant mon parcours",
     technologies:
-      "VueJS, JavaScript, elementPlus, Motion, REST API, MySQL, Kubernetes, Git, Hostinger, JWT",
+      "VueJS, JavaScript, Element Plus, Motion, REST API, MySQL, Kubernetes, Git, Hostinger, JWT",
     features: [
       "Tableau de bord administrateur",
       "Interfaces responsives",
@@ -169,13 +187,13 @@ const projects = [
       "Lazy loading des composants lourds"
     ],
     image: new URL('@/assets/cd.png', import.meta.url).href,
-    url: "https://monsite-easytravel.com"
+    link: "https://porte-folio-sooty.vercel.app/"
   },
   {
     id: 7,
     title: "Ayila'a : App mobile pour dénicher les bons coins",
     technologies:
-      "Flutter, VueJS, Symfony, MariaDB, Cloudinary, Git, Hostinger, JWT, elementPlus",
+      "Flutter, VueJS, Symfony, MariaDB, Cloudinary, Git, Hostinger, JWT, Element Plus",
     features: [
       "Interface administrateur",
       "Interfaces responsives",
@@ -183,9 +201,15 @@ const projects = [
       "Lazy loading des composants lourds"
     ],
     image: new URL('@/assets/ayila1.png', import.meta.url).href,
-    url: "https://monsite-easytravel.com"
+    link: "https://ayilaa.com/fr/"
   }
 ]
+
+const openProject = (project) => {
+  if (!project.link) return
+
+  window.open(project.link, "_blank", "noopener,noreferrer")
+}
 </script>
 
 <style scoped>
@@ -211,9 +235,11 @@ const projects = [
 .projects-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.65),
-      rgba(0, 0, 0, 0.9));
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.9)
+  );
 }
 
 .projects-hero-inner {
@@ -250,6 +276,11 @@ const projects = [
 
 .titre-projet {
   font-size: 25px;
+  margin-bottom: 2rem;
+}
+
+.titre-projet h2 {
+  margin: 0;
 }
 
 /* CARD */
@@ -326,7 +357,7 @@ const projects = [
   color: #e5e7eb;
 }
 
-.project-features li+li {
+.project-features li + li {
   margin-top: 0.15rem;
 }
 
