@@ -49,18 +49,19 @@ const timelineItems = ref([
       "Tailwind",
       "HTML",
       "JavaScript",
-      "Symfony 6",
+      "Symfony 7",
       "Intégration",
+      "Flutter"
     ],
     description:
-      "Intégration de maquettes Figma responsives, création de composants réutilisables et animations micro-interactions.",
+      "Développer des fonctionnalités web Front-End et Back-End dans le cadre de projets clients, ainsi que sites Wordpresss. Participer  à la gestion des bases de données . Conception des applis Mobiles en respectant les maquettes fonctionnelles. Intégrer et synchroniser les données d’un site e-commerce WordPress avec Dolibarr pour centraliser la gestion commerciale. Connecter les informations clients et campagnes à Mailjet afin d’automatiser les communications marketing et transactionnelles",
   },
 
   {
     category: "experience",
     year: "2020 - 2022",
     title: "Développeur Web et Mobile • 1 an 6 mois",
-    company: "FANELIT DIGITAL SOLUTIONS",
+    company: "AGL Group",
     location: "Yaoundé, Cameroun",
     type: "CDD",
     technologies: [
@@ -322,6 +323,7 @@ const experiences = computed(() =>
 
 .block-title-wrap {
   margin-bottom: 1rem;
+  padding-left: 0;
 }
 
 .block-title {
@@ -335,14 +337,31 @@ const experiences = computed(() =>
 .timeline {
   --el-timeline-node-size-large: 16px;
   --el-timeline-node-color: #ff4b4b;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
 }
 
+:deep(.el-timeline) {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+:deep(.el-timeline-item) {
+  padding-bottom: 2rem;
+}
+
+/* Ici on rapproche les dates du titre sans déplacer Formations */
 :deep(.el-timeline-item__wrapper) {
-  padding-left: 22px;
+  padding-left: 24px;
 }
 
 :deep(.el-timeline-item__tail) {
+  left: 8px;
   border-left: 2px solid rgba(255, 75, 75, 0.65);
+}
+
+:deep(.el-timeline-item__node) {
+  left: 1px;
 }
 
 :deep(.el-timeline-item__node--large) {
@@ -484,6 +503,10 @@ const experiences = computed(() =>
     padding: 2.5rem 0.7rem 3rem;
   }
 
+  .block-title-wrap {
+    padding-left: 0;
+  }
+
   .timeline-header h2 {
     font-size: 1.55rem;
     margin-bottom: 0.6rem;
@@ -499,7 +522,7 @@ const experiences = computed(() =>
   }
 
   :deep(.el-timeline-item__wrapper) {
-    padding-left: 18px;
+    padding-left: 22px;
   }
 
   :deep(.el-timeline-item__timestamp) {
@@ -557,6 +580,10 @@ const experiences = computed(() =>
     padding: 2.2rem 0.55rem 2.8rem;
   }
 
+  .block-title-wrap {
+    padding-left: 0;
+  }
+
   .eyebrow {
     font-size: 0.72rem;
   }
@@ -574,7 +601,7 @@ const experiences = computed(() =>
   }
 
   :deep(.el-timeline-item__wrapper) {
-    padding-left: 15px;
+    padding-left: 20px;
   }
 
   :deep(.el-timeline-item__node--large) {
