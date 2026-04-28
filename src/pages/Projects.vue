@@ -25,7 +25,7 @@
     <section class="projects-section">
       <div class="projects-container">
         <div class="titre-projet">
-          <h2>Projets personnel et professionnels réalisés</h2>
+          <h2>Projets personnels et professionnels réalisés</h2>
         </div>
 
         <Motion
