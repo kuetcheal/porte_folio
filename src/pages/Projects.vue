@@ -118,6 +118,22 @@ const projects = [
   },
   {
     id: 2,
+    title:
+      "EasyShop : site E-commerce de vente en ligne vêtements et accessoires",
+    technologies:
+      "ReactJS , Vite , Sprint Boot , Redux ,  MySQL , TailwindCSS, Git, Vercel , Microsoft Azure , Docker , Kubernetes",
+    features: [
+      "Tableau de bord administrateur",
+      "Interfaces responsives",
+      "Timeline interactive des actions",
+      "Intégration de nombreux API tierces ( Paiement, Google Maps, Gmail, Whatsapp )"
+    ],
+    image: new URL('@/assets/easyshop.png', import.meta.url).href,
+    link: "https://site-ecommerce-front.vercel.app/"
+  },
+  
+  {
+    id: 3,
     title: "PayTonKaya : site E-commerce permettant la vente de café",
     technologies:
       "ReactJS, Vite, TailwindCSS, MySQL, Spring Boot, JUnit 5, Git, Github Actions, CI/CD, Kubernetes, Prometheus, JWT, Grafana, Sonarqube",
@@ -131,7 +147,7 @@ const projects = [
     link: "https://monsite-easytravel.com"
   },
   {
-    id: 3,
+    id: 4,
     title:
       "EventGO : application Mobile cross platform de souscription aux événements",
     technologies:
@@ -146,7 +162,7 @@ const projects = [
     link: "https://monsite-easytravel.com"
   },
   {
-    id: 4,
+    id: 5,
     title:
       "Mobiliis : application d'accompagnement dans les procédures de voyages",
     technologies:
@@ -161,7 +177,7 @@ const projects = [
     link: "https://mobiliis.vercel.app"
   },
   {
-    id: 5,
+    id: 6,
     title:
       "Conception de 14 sites écoles pour le groupe universitaire C&D",
     technologies:
@@ -176,7 +192,7 @@ const projects = [
     link: "https://www.epsi.fr/"
   },
   {
-    id: 6,
+    id: 7,
     title: "Mon portfolio : site vitrine décrivant mon parcours",
     technologies:
       "VueJS, JavaScript, Element Plus, Motion, REST API, MySQL, Kubernetes, Git, Hostinger, JWT",
@@ -186,11 +202,11 @@ const projects = [
       "Timeline interactive des actions",
       "Lazy loading des composants lourds"
     ],
-    image: new URL('@/assets/cd.png', import.meta.url).href,
+    image: new URL('@/assets/Portefolio.png', import.meta.url).href,
     link: "https://porte-folio-sooty.vercel.app/"
   },
   {
-    id: 7,
+    id: 8,
     title: "Ayila'a : App mobile pour dénicher les bons coins",
     technologies:
       "Flutter, VueJS, Symfony, MariaDB, Cloudinary, Git, Hostinger, JWT, Element Plus",

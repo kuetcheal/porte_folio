@@ -2,18 +2,20 @@
 import { Motion } from "motion-v"
 
 const projects = [
-  {
+   {
     id: 1,
-    title: "Application web de locations immobilières",
+    title:
+      "EasyShop : site E-commerce de vente en ligne vêtements et accessoires",
     technologies:
-      "Next.js, TypeScript, TailwindCSS, PostgreSQL, Prisma, Jest, Git, GitLab, AWS, Nginx, HTTPS/SSL, JWT",
+      "ReactJS , Vite , Sprint Boot , Redux ,  MySQL , TailwindCSS, Git, Vercel , Microsoft Azure , Docker , Kubernetes",
     features: [
-      "Notifications en temps réel",
-      "Prise de rendez-vous en ligne",
-      "Tableau de bord pour admins et utilisateurs",
-      "Gestion complète des logements et réservations"
+      "Tableau de bord administrateur",
+      "Interfaces responsives",
+      "Timeline interactive des actions",
+      "Intégration de nombreux API tierces ( Paiement, Google Maps, Gmail, Whatsapp )"
     ],
-    image: new URL('@/assets/infos1.jpg', import.meta.url).href
+    image: new URL('@/assets/easyshop.png', import.meta.url).href,
+    link: "https://site-ecommerce-front.vercel.app/"
   },
   {
     id: 2,
