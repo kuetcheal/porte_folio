@@ -5,7 +5,7 @@ import { Motion } from "motion-v";
 const timelineItems = ref([
   {
     category: "formation",
-    year: "2024 - 2026",
+    year: "2022 - 2024",
     title: "Master en EISI option Développement Web",
     company: "Ecole des ingénieurs EPSI",
     location: "Montpellier, France",
@@ -18,10 +18,10 @@ const timelineItems = ref([
   {
     category: "experience",
     year: "2024 - 2026",
-    title: "Développeur Full-Stack en alternance : 2 ans",
+    title: "Développeur Full-Stack en CDD : 2 ans",
     company: "Compétences & Développement",
-    location: "Montpellier, France",
-    type: "Alternance",
+    location: "Paris, France",
+    type: "CDD",
     technologies: [
       "Vue.js",
       "Nuxt.js",
@@ -35,10 +35,29 @@ const timelineItems = ref([
     description:
       "Développement et maintenance de plateformes web pour les 14 écoles du groupe Compétences & Développement, dans un environnement orienté multi-sites et mutualisation des composants. Contribution à l’intégration frontend avec Vue.js/Nuxt.js, au développement backend, à la gestion de contenus via Strapi, ainsi qu’aux pratiques de déploiement et d’automatisation avec Docker, Kubernetes et GitHub Actions.",
   },
-
+  
+   {
+    category: "experience",
+    year: "2024 - 2026",
+    title: "Développeur Full-Stack en Alternance : 2 ans",
+    company: "Capgemini",
+    location: "Montpellier, France",
+    type: "CDD",
+    technologies: [
+      "Sprint Boot",
+      "ReactJS",
+      "PostgreSQL",
+      "Power Automate",
+      "Docker",
+      "GitHub Actions",
+      "Kubernetes",
+    ],
+    description:
+      "Développer des fonctionnalités Front-End et Back-End pour des applications web métiers à forte valeur ajoutée, contribuer aux pipelines CI/CD, aux tests automatisés, aux revues de code. Participer à la conception d’API REST sécurisées, à l’intégration de bases de données et à l’optimisation des performances.",
+  },
   {
     category: "experience",
-    year: "2023 - 2024",
+    year: "2021 - 2022",
     title: "Stage Développeur Full-stack : 6 mois",
     company: "Codi-one Agency",
     location: "Angers, France",
@@ -59,7 +78,7 @@ const timelineItems = ref([
 
   {
     category: "experience",
-    year: "2020 - 2022",
+    year: "2019 - 2021",
     title: "Développeur Web et Mobile • 1 an 6 mois",
     company: "AGL Group",
     location: "Yaoundé, Cameroun",
@@ -69,7 +88,7 @@ const timelineItems = ref([
       "Flutter",
       "Docker",
       "REST",
-      "NodeJS",
+      "Java EE/Sprint Boot",
       "MariaDB",
       "Intégration",
     ],
@@ -79,7 +98,7 @@ const timelineItems = ref([
 
   {
     category: "formation",
-    year: "2022 - 2023",
+    year: "2021 - 2022",
     title: "Bachelor Développement Web et Mobile",
     company: "Ecole des ingénieurs ESAIP",
     location: "Angers, France",
