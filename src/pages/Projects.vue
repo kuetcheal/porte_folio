@@ -151,14 +151,14 @@ const projects = [
     title:
       "EventGO : application Mobile cross platform de souscription aux événements",
     technologies:
-      "React, JavaScript, TailwindCSS, Node.js, Flutter, Cloudinary, MySQL, OVH, Render, Github, Docker, n8n",
+      "React, JavaScript, TailwindCSS, Node.js, Flutter, Cloudinary, MySQL, OVH, Render, Github, Docker, n8n, Azure, GCP",
     features: [
       "Gestion des rôles (RBAC) et authentification SSO",
       "Notifications en temps réel",
       "Tableau de bord personnalisable",
       "Suivi des activités et reporting avancé"
     ],
-    image: new URL('@/assets/infos2.jpg', import.meta.url).href,
+    image: new URL('@/assets/event.png', import.meta.url).href,
     link: "https://monsite-easytravel.com"
   },
   {

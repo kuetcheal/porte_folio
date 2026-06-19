@@ -20,16 +20,16 @@ const projects = [
   {
     id: 2,
     title:
-      "maestroSIGRAI : application Web Multi-Tenant (SaaS) de gestion des risques",
+      "EventGO : application Mobile de reservation des évènements",
     technologies:
-      "React, TypeScript, TailwindCSS, Node.js, NestJS, REST API, WebSockets, PostgreSQL, Prisma, Jest, GitLab, CI/CD, Docker",
+      "React, Flutter, JavaScript, TailwindCSS, Node.js, REST API, MysSQL, Microsoft Azure, Render, GitLab, CI/CD, Docker, n8n, GCP",
     features: [
       "Gestion des rôles (RBAC) et authentification SSO",
       "Notifications en temps réel",
       "Tableau de bord personnalisable",
       "Suivi des activités et reporting avancé"
     ],
-    image: new URL('@/assets/infos2.jpg', import.meta.url).href
+    image: new URL('@/assets/event.png', import.meta.url).href
   },
   {
     id: 3,
