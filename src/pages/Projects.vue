@@ -173,7 +173,7 @@ const projects = [
       "Timeline interactive des actions",
       "Lazy loading des composants lourds"
     ],
-    image: new URL('@/assets/infos3.jpg', import.meta.url).href,
+    image: new URL('@/assets/mobiliis.png', import.meta.url).href,
     link: "https://mobiliis.vercel.app"
   },
   {
