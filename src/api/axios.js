@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:8081/api",
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",
@@ -13,7 +13,10 @@ api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
 
-    if (token) {
+    // pas de token sur le formulaire de contact
+    const isContactRoute = config.url?.startsWith("/contacts");
+
+    if (token && !isContactRoute) {
       config.headers.Authorization = `Bearer ${token}`;
     }
 

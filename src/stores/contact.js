@@ -19,7 +19,11 @@ export const useContactStore = defineStore("contact", {
         this.success = true;
         return response;
       } catch (error) {
-        this.error = error.response?.data?.message || error.message;
+        this.error =
+          error.response?.data?.message ||
+          error.response?.data?.error ||
+          "Erreur lors de l'envoi du message";
+
         throw error;
       } finally {
         this.loading = false;

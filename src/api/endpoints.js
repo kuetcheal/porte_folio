@@ -49,8 +49,19 @@ export const getBlogById = async (id) => {
 };
 
 
+
 // CONTACT
 export const sendContact = async (payload) => {
-  const response = await api.post("/contact", payload);
+  const response = await api.post("/contacts", payload);
   return response.data;
 };
+
+export const getContacts = async () => {
+  const response = await api.get("/contacts");
+  return response.data;
+};
+
+export const getContactById = async (id) => {
+  const response = await api.get('/contacts/${id}')
+  return response.data
+}

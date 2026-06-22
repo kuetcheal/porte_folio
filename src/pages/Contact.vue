@@ -1,7 +1,10 @@
-<!-- src/pages/Contact.vue -->
 <script setup>
 import { reactive, ref } from "vue";
-// import { Motion } from "motion-v";
+import { ElMessage } from "element-plus";
+import { useContactStore } from "@/stores/contact";
+
+const contactStore = useContactStore();
+
 const bgHero = new URL("@/assets/infos3.jpg", import.meta.url).href;
 
 const formRef = ref(null);
@@ -27,14 +30,40 @@ const rules = {
   ],
 };
 
+const resetForm = () => {
+  Object.keys(form).forEach((key) => {
+    form[key] = "";
+  });
+
+  if (formRef.value) {
+    formRef.value.clearValidate();
+  }
+};
+
 const submitForm = () => {
   if (!formRef.value) return;
-  formRef.value.validate((valid) => {
-    if (valid) {
-      // Ici tu pourras plus tard appeler ton API / envoyer un mail
-      console.log("Formulaire envoyé :", { ...form });
-      ElMessage.success("Votre message a bien été envoyé (simulation).");
-      Object.keys(form).forEach((k) => (form[k] = ""));
+
+  formRef.value.validate(async (valid) => {
+    if (!valid) return;
+
+    const payload = {
+      prenom: form.firstName,
+      nom: form.lastName,
+      email: form.email,
+      telephone: form.phone,
+      message: form.message,
+    };
+
+    try {
+      await contactStore.submitContact(payload);
+
+      ElMessage.success("Votre message a bien été envoyé.");
+      resetForm();
+    } catch (error) {
+      console.error("Erreur contact :", error);
+      ElMessage.error(
+        contactStore.error || "Impossible d'envoyer le message pour le moment."
+      );
     }
   });
 };
@@ -43,10 +72,7 @@ const submitForm = () => {
 <template>
   <main class="contact-page">
     <!-- ========= HERO ========= -->
-    <section
-      class="contact-hero"
-      :style="{ backgroundImage: `url(${bgHero})` }"
-    >
+    <section class="contact-hero" :style="{ backgroundImage: `url(${bgHero})` }">
       <div class="contact-hero-overlay"></div>
 
       <div class="contact-hero-inner">
@@ -59,20 +85,13 @@ const submitForm = () => {
       </div>
     </section>
 
-    <!-- ========= CONTENU PRINCIPAL ========= -->
     <section class="contact-section">
       <div class="contact-container">
         <!-- COLONNE FORMULAIRE -->
         <div class="contact-left">
           <h2 class="contact-block-title">Vous souhaitez être recontacté ?</h2>
 
-          <el-form
-            ref="formRef"
-            :model="form"
-            :rules="rules"
-            label-position="top"
-            class="contact-form"
-          >
+          <el-form ref="formRef" :model="form" :rules="rules" label-position="top" class="contact-form">
             <div class="form-row">
               <el-form-item label="Prénom *" prop="firstName">
                 <el-input v-model="form.firstName" placeholder="Votre prénom" />
@@ -85,33 +104,23 @@ const submitForm = () => {
 
             <div class="form-row">
               <el-form-item label="Email *" prop="email">
-                <el-input
-                  v-model="form.email"
-                  placeholder="exemple@domaine.com"
-                />
+                <el-input v-model="form.email" placeholder="exemple@domaine.com" />
               </el-form-item>
 
               <el-form-item label="Téléphone" prop="phone">
-                <el-input
-                  v-model="form.phone"
-                  placeholder="+33 6 12 34 56 78"
-                />
+                <el-input v-model="form.phone" placeholder="+33 6 12 34 56 78" />
               </el-form-item>
             </div>
 
             <el-form-item label="Message *" prop="message">
-              <el-input
-                v-model="form.message"
-                type="textarea"
-                :rows="6"
-                placeholder="Décrivez votre projet, vos besoins, vos questions…"
-              />
+              <el-input v-model="form.message" type="textarea" :rows="6"
+                placeholder="Décrivez votre projet, vos besoins, vos questions…" />
             </el-form-item>
 
             <div class="contact-submit">
-              <el-button type="danger" size="large" round @click="submitForm">
-                <i class="fa-solid fa-paper-plane submit-icon" />
-                Envoyer
+              <el-button type="danger" size="large" round :loading="contactStore.loading" @click="submitForm">
+                <i v-if="!contactStore.loading" class="fa-solid fa-paper-plane submit-icon" />
+                {{ contactStore.loading ? "Envoi..." : "Envoyer" }}
               </el-button>
             </div>
           </el-form>
@@ -178,17 +187,13 @@ const submitForm = () => {
 .contact-page {
   background: #050816;
   color: #f9fafb;
-  /* pas besoin d'overflow-x ici, c’est déjà sur body */
 }
-
-/* ========= HERO ========= */
 
 .contact-hero {
   position: relative;
   width: 100vw;
-  margin-left: calc(
-    50% - 50vw
-  ); /* sort du container pour toucher les bords écran */
+  margin-left: calc(50% - 50vw);
+  /* sort du container pour toucher les bords écran */
   height: 400px;
   background-position: center center;
   background-size: cover;
@@ -201,11 +206,9 @@ const submitForm = () => {
 .contact-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.75),
-    rgba(0, 0, 0, 0.85)
-  );
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0.85));
 }
 
 .contact-hero-inner {
@@ -227,7 +230,6 @@ const submitForm = () => {
   color: #e5e7eb;
 }
 
-/* ========= SECTION CONTACT ========= */
 
 .contact-section {
   padding: 3rem 0 4rem;
@@ -248,7 +250,6 @@ const submitForm = () => {
   margin-bottom: 1.5rem;
 }
 
-/* -------- Formulaire -------- */
 
 .contact-form {
   margin-top: 0.3rem;
@@ -360,7 +361,8 @@ const submitForm = () => {
   .contact-hero-title {
     font-size: 1.6rem;
   }
-  .contact-hero-subtitle{
+
+  .contact-hero-subtitle {
     font-size: 1.2rem;
   }
 }
